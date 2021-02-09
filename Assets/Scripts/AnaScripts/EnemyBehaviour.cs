@@ -45,9 +45,17 @@ public class EnemyBehaviour : MonoBehaviour
     {
         foreach (Transform waypoint in pathHolder)
         {
-            Gizmos.color = Color.red;
+            Gizmos.color = Color.green;
             Gizmos.DrawSphere(waypoint.position, .1f);
         }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, sightRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+
     }
     void Start()
     {
@@ -60,18 +68,24 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
         Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, sightRange, whatIsTarget);
+        //Debug.Log(hitCollidersSight.Length);
         if (hitCollidersSight.Length >= 1)
         {
             targetInSight = true;
             target = hitCollidersSight[0].transform;
         }
+        else { targetInSight = false; }
 
         Collider[] hitCollidersAttack = Physics.OverlapSphere(transform.position, attackRange, whatIsTarget);
+        ///Debug.Log(hitCollidersAttack.Length);
         if (hitCollidersAttack.Length >= 1)
         {
             targetInAttackRange = true;
             target = hitCollidersAttack[0].transform;
         }
+        else { targetInAttackRange = false; }
+        //Debug.Log(targetInSight + "  " + targetInAttackRange);
+        
 
         if (!targetInSight && !targetInAttackRange) Patroling();
         if (targetInSight && !targetInAttackRange) Chase();
@@ -80,7 +94,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Patroling()
     {
-        //Debug.Log("patrol");
+        Debug.Log("patrol");
         if (walkPointSet==false) SearchWalkPoint();
         else
         {
@@ -106,6 +120,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void Chase()
     {
+        walkPointSet = false;
         agent.SetDestination(target.position);
     }
     void Attack()
