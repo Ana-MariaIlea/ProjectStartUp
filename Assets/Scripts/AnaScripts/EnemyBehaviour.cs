@@ -5,15 +5,6 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    enum enemyState
-    {
-        PATROL,
-        CHASE,
-        SEARCH,
-        ATTACK,
-        GOBACK
-    }
-    enemyState currentState;
 
     [SerializeField]
     private Transform[] pathHolder;
@@ -29,6 +20,8 @@ public class EnemyBehaviour : MonoBehaviour
     private LayerMask whatIsGround;
     [SerializeField]
     private LayerMask whatIsTarget;
+    [SerializeField]
+    private LayerMask whatIsObstacle;
 
     [SerializeField]
     private float sightRange;
@@ -37,7 +30,11 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private float attackRange;
     [SerializeField]
+    private float viewAngle;
+    [SerializeField]
     private bool targetInSight, targetInAttackRange;
+
+    int State;
     //----------------------------------------------------------------
     //                  Draw Gizmos
     //----------------------------------------------------------------
@@ -71,25 +68,57 @@ public class EnemyBehaviour : MonoBehaviour
         //Debug.Log(hitCollidersSight.Length);
         if (hitCollidersSight.Length >= 1)
         {
-            targetInSight = true;
-            target = hitCollidersSight[0].transform;
+            Vector3 directionToTarget = (hitCollidersSight[0].transform.position - transform.position).normalized;
+            if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
+            {
+                float distToTarget = Vector3.Distance(transform.position, hitCollidersSight[0].transform.position);
+
+                if (!Physics.Raycast(transform.position, directionToTarget, distToTarget, whatIsObstacle))
+                {
+                    targetInSight = true;
+                    target = hitCollidersSight[0].transform;
+                }
+               
+            }
+            
         }
         else { targetInSight = false; }
 
         Collider[] hitCollidersAttack = Physics.OverlapSphere(transform.position, attackRange, whatIsTarget);
-        ///Debug.Log(hitCollidersAttack.Length);
         if (hitCollidersAttack.Length >= 1)
         {
             targetInAttackRange = true;
             target = hitCollidersAttack[0].transform;
         }
         else { targetInAttackRange = false; }
-        //Debug.Log(targetInSight + "  " + targetInAttackRange);
         
 
         if (!targetInSight && !targetInAttackRange) Patroling();
         if (targetInSight && !targetInAttackRange) Chase();
         if (targetInSight && targetInAttackRange) Attack();
+    }
+
+    float CalculateNoisePath(Vector3 targetPosition)
+    {
+        NavMeshPath path = new NavMeshPath();
+        if (agent.enabled)
+        {
+            agent.CalculatePath(targetPosition, path);
+        }
+        Vector3[] allWayPoints = new Vector3[path.corners.Length + 2];
+        allWayPoints[0] = transform.position;
+        allWayPoints[allWayPoints.Length - 1] = targetPosition;
+        for (int i = 0; i < path.corners.Length; i++)
+        {
+            allWayPoints[i + 1] = path.corners[i];
+        }
+        float pathLength = 0;
+        for (int i = 0; i < allWayPoints.Length-1; i++)
+        {
+            pathLength += Vector3.Distance(allWayPoints[i], allWayPoints[i + 1]);
+        }
+
+        return pathLength;
     }
 
     void Patroling()
