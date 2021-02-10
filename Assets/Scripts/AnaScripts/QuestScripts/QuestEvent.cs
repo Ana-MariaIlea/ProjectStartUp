@@ -9,7 +9,8 @@ public class QuestEvent
     {
         WAITING,
         CURRENT,
-        DONE
+        DONE,
+        FAIL
     }
 
     public string name;
