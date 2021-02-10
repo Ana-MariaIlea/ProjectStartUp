@@ -9,7 +9,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private Transform[] pathHolder;
 
-    private int walkPoint=0;
+    private int walkPoint = 0;
     private bool walkPointSet;
 
     [SerializeField]
@@ -34,7 +34,8 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private bool targetInSight, targetInAttackRange;
 
-    int State;
+    int playerState=0;
+    float timer = 5;
     //----------------------------------------------------------------
     //                  Draw Gizmos
     //----------------------------------------------------------------
@@ -78,9 +79,9 @@ public class EnemyBehaviour : MonoBehaviour
                     targetInSight = true;
                     target = hitCollidersSight[0].transform;
                 }
-               
+
             }
-            
+
         }
         else { targetInSight = false; }
 
@@ -91,7 +92,12 @@ public class EnemyBehaviour : MonoBehaviour
             target = hitCollidersAttack[0].transform;
         }
         else { targetInAttackRange = false; }
-        
+
+        if (playerState == 1) /// CHANGE, get player reference, player needs state to indicate that it is making sound
+        {
+            Vector3 position = new Vector3(0, 0, 0);
+            CalculateNoisePath(position);
+        }
 
         if (!targetInSight && !targetInAttackRange) Patroling();
         if (targetInSight && !targetInAttackRange) Chase();
@@ -113,7 +119,7 @@ public class EnemyBehaviour : MonoBehaviour
             allWayPoints[i + 1] = path.corners[i];
         }
         float pathLength = 0;
-        for (int i = 0; i < allWayPoints.Length-1; i++)
+        for (int i = 0; i < allWayPoints.Length - 1; i++)
         {
             pathLength += Vector3.Distance(allWayPoints[i], allWayPoints[i + 1]);
         }
@@ -123,8 +129,19 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Patroling()
     {
-        Debug.Log("patrol");
-        if (walkPointSet==false) SearchWalkPoint();
+       // Debug.Log("patrol");
+        if (walkPointSet == false)
+        {
+            //if (timer <= 0)
+           // {
+                SearchWalkPoint();
+             //   timer = 10;
+           // }
+           //else
+           // {
+           //     timer -= Time.fixedDeltaTime;
+           // }
+        }
         else
         {
             agent.SetDestination(target.position);
@@ -135,9 +152,26 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (distanceToLocation.magnitude < 1f)
         {
-            walkPointSet = false;
+           // walkPointSet = false;
+            StayPut();
+
         }
-        
+
+    }
+
+    void StayPut()
+    {
+        agent.SetDestination(transform.position);
+        if (timer <= 0)
+        {
+            walkPointSet = false;
+            timer = 5;
+        }
+        else
+        {
+            timer -= Time.fixedDeltaTime;
+        }
+        Debug.Log(timer);
     }
 
     void SearchWalkPoint()
