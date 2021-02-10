@@ -53,6 +53,8 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
         {
             SetTarget(other.gameObject);
             following = true;
+            CapsuleCollider col = GetComponent<CapsuleCollider>();
+            col.radius = 0.5f;
         }
 
         if (other.tag == "SafeRoom")
