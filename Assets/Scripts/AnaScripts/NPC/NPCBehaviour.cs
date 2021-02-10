@@ -7,9 +7,9 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
 {
 
     private NavMeshAgent agent;
-    private Transform target;
+    private GameObject target;
     [SerializeField]
-    private Transform safeTarget;
+    private GameObject safeTarget;
     [SerializeField]
     private LayerMask whatIsGround;
     [SerializeField]
@@ -18,6 +18,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     private int health;
 
     bool safe = false;
+    bool following = false;
 
 
     // Start is called before the first frame update
@@ -26,17 +27,16 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
         agent = GetComponent<NavMeshAgent>();
     }
 
-    public void SetTarget(Transform _target)
+    public void SetTarget(GameObject _target)
     {
         target = _target;
-        agent.SetDestination(target.position);
+        
     }
 
     
     public void SetEndState()
     {
         target = safeTarget;
-        agent.SetDestination(target.position);
     }
 
     public void TakeDamage()
@@ -51,13 +51,28 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
         Debug.Log("OnTriggerEnter");
         if (other.tag == "Player"&&safe==false)
         {
-            SetTarget(other.transform);
+            SetTarget(other.gameObject);
+            following = true;
         }
 
         if (other.tag == "SafeRoom")
         {
             SetEndState();
             safe = true;
+            following = false;
+        }
+    }
+
+    void Update()
+    {
+        if (following)
+        {
+            agent.SetDestination(target.transform.position);
+        }
+
+        if (safe)
+        {
+            agent.SetDestination(target.transform.position);
         }
     }
 }
