@@ -6,11 +6,12 @@ public class LocationVolume : MonoBehaviour
 {
     private void OnTriggerEnter(Collider collision)
     {
-       // Debug.Log("collision ");
+        // Debug.Log("collision ");
         if (collision.gameObject.tag == "Player")
         {
             //Debug.Log("collision with player");
-            GetComponentInParent<QuestCompletion>().Compltion();
+            if (GetComponentInParent<QuestCompletion>() != null)
+                GetComponentInParent<QuestCompletion>().Compltion();
         }
     }
 }

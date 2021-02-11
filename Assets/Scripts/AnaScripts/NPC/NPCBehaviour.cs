@@ -68,6 +68,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
             SetEndState();
             safe = true;
             following = false;
+            GetComponent<QuestCompletion>().Compltion();
         }
     }
 
