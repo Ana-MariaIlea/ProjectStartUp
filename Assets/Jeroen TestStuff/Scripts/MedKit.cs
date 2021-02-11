@@ -8,7 +8,8 @@ public class MedKit : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            // Put medkit in inventory
+            collision.transform.GetComponent<PlayerStats>().addMedKit();
+            Destroy(this.gameObject);
         }
     }
 }
