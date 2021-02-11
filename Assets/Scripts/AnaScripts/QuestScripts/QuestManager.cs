@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class QuestManager : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class QuestManager : MonoBehaviour
     public QuestEvent[] quests;
     public ConnectionID[] connections;
     public CompletionItems[] completion;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI descriptionText;
 
     // Start is called before the first frame update
     void Start()
@@ -68,6 +72,9 @@ public class QuestManager : MonoBehaviour
             if (quests[i].order == 1)
             {
                 quests[i].UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
+                nameText.text = quests[i].name;
+                descriptionText.text = quests[i].description;
+                break;
             }
         }
 
@@ -89,7 +96,9 @@ public class QuestManager : MonoBehaviour
                 else
                 {
                     n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
-                     Debug.Log(n.name+"  curent mission");
+                    nameText.text = n.name;
+                    descriptionText.text = n.description;
+                    Debug.Log(n.name+"  curent mission");
                 }
                 // Debug.Log(n.name+"  added");
             }
