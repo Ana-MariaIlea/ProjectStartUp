@@ -11,7 +11,12 @@ public class QuestCompletion : MonoBehaviour
 
     public void Compltion()
     {
-        if (_event.status != QuestEvent.EventStatus.CURRENT) return;
+        if (_event.status != QuestEvent.EventStatus.CURRENT)
+        {
+            if (_event.status != QuestEvent.EventStatus.DONE && _event.status != QuestEvent.EventStatus.FAIL)
+                _event.UpdateQuestEvent(QuestEvent.EventStatus.DONE);
+            return;
+        }
 
         _event.UpdateQuestEvent(QuestEvent.EventStatus.DONE);
         _manager.UpdateQuestOnCompletion(_event);
@@ -20,7 +25,12 @@ public class QuestCompletion : MonoBehaviour
 
     public void Fail()
     {
-        if (_event.status != QuestEvent.EventStatus.CURRENT) return;
+        if (_event.status != QuestEvent.EventStatus.CURRENT)
+        {
+            if (_event.status != QuestEvent.EventStatus.DONE && _event.status != QuestEvent.EventStatus.FAIL)
+                _event.UpdateQuestEvent(QuestEvent.EventStatus.FAIL);
+            return;
+        }
 
         _event.UpdateQuestEvent(QuestEvent.EventStatus.FAIL);
         _manager.UpdateQuestOnCompletion(_event);

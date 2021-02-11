@@ -23,6 +23,7 @@ public class QuestManager : MonoBehaviour
     public QuestEvent[] quests;
     public ConnectionID[] connections;
     public CompletionItems[] completion;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,16 +76,25 @@ public class QuestManager : MonoBehaviour
 
     public void UpdateQuestOnCompletion(QuestEvent e)
     {
-       // Debug.Log("Quest change from  "+e.name + "   " + e.order);
+        // Debug.Log("Quest change from  "+e.name + "   " + e.order);
         foreach (QuestEvent n in quest.questEvents)
         {
             //Debug.Log(n.name+"   "+n.order);
             if (n.order == (e.order + 1))
             {
-                n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
-               // Debug.Log(n.name+"  added");
+                if(n.status == QuestEvent.EventStatus.DONE || n.status == QuestEvent.EventStatus.FAIL)
+                {
+                    UpdateQuestOnCompletion(n);
+                }
+                else
+                {
+                    n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
+                     Debug.Log(n.name+"  curent mission");
+                }
+                // Debug.Log(n.name+"  added");
             }
         }
     }
+
 
 }

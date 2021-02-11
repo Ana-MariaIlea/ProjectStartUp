@@ -15,6 +15,14 @@ public class QuestGraph
         return questEvent;
     }
 
+    public void RemoveQuestEvent(QuestEvent _event)
+    {
+        if (questEvents.Contains(_event))
+        {
+            questEvents.Remove(_event);
+        }
+    }
+
     public void AddPath(string startQuestID, string endQuestID)
     {
         QuestEvent start = FindQuestEvent(startQuestID);
