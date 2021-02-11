@@ -32,8 +32,11 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private bool targetInSight, targetInAttackRange;
 
+    [SerializeField]
+    float attackTimer;
     int playerState=0;
     float timer = 5;
+    float timerforAttack;
     //----------------------------------------------------------------
     //                  Draw Gizmos
     //----------------------------------------------------------------
@@ -56,7 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-
+        timerforAttack = attackTimer;
     }
 
 
@@ -186,9 +189,15 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void Attack()
     {
-        agent.SetDestination(transform.position);
-        transform.LookAt(target);
-        target.GetComponent<ITakeDamage>().TakeDamage();
+        if (timerforAttack <= 0)
+        {
+            agent.SetDestination(transform.position);
+            transform.LookAt(target);
+            if (target.GetComponent<ITakeDamage>() != null) target.GetComponent<ITakeDamage>().TakeDamage();
+            timerforAttack = attackTimer;
+        }
+        else timerforAttack -= Time.fixedDeltaTime;
+
     }
 
 }
