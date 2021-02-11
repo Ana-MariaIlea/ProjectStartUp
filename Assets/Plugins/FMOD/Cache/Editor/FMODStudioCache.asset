@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: event:/Walking
   guid: 5172c4dc55ac5f479a77612babde2e5b
   Banks:
-  - {fileID: -4475026024027601893}
+  - {fileID: -7981211296861925084}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -23,6 +23,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-7981211296861925084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/ProjectStartUpGameSceneSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637486616882001628
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7931742051746542686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,7 +76,7 @@ MonoBehaviour:
   Path: event:/Shooting
   guid: fa968cc1a769cc43847d318e4e634a98
   Banks:
-  - {fileID: -4475026024027601893}
+  - {fileID: -7981211296861925084}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -83,7 +101,7 @@ MonoBehaviour:
   lastModified: 637486576060000000
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &-3272523856602044013
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,16 +152,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 1148379492643341173}
-  - {fileID: -4475026024027601893}
+  - {fileID: -7981211296861925084}
   EditorEvents:
   - {fileID: -8555114959395432941}
   - {fileID: -5727175364646545967}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -4475026024027601893}
+  - {fileID: -7981211296861925084}
   StringsBanks:
   - {fileID: 1148379492643341173}
-  stringsBankWriteTime: 637486576060000000
+  stringsBankWriteTime: 637486616882011596
   cacheVersion: 3
 --- !u!114 &715746786608864059
 MonoBehaviour:
@@ -177,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Fmod/ProjectStartUpGameSceneSounds/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637486576060000000
+  lastModified: 637486616882011596
   LoadResult: 0
   FileSizes:
   - Name: Desktop
