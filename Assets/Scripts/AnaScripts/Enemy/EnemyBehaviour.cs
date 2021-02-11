@@ -45,6 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
     int playerState = 0;
     float timer = 5;
     float timerforAttack;
+    float range=0;
     //----------------------------------------------------------------
     //                  Draw Gizmos
     //----------------------------------------------------------------
@@ -57,24 +58,27 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+       // Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, chaseRange);
+       // Gizmos.DrawWireSphere(transform.position, chaseRange);
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawWireSphere(transform.position, range);
 
     }
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         timerforAttack = attackTimer;
+        range = sightRange;
     }
 
 
 
     void Update()
     {
-        Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, sightRange, whatIsTarget);
+        Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, range, whatIsTarget);
         //Debug.Log(hitCollidersSight.Length);
         if (hitCollidersSight.Length >= 1)
         {
@@ -182,11 +186,13 @@ public class EnemyBehaviour : MonoBehaviour
         target = path[walkPoint].pathHolder;
         timer = path[walkPoint].timeToStay;
         walkPointSet = true;
+        if (range != sightRange) range = sightRange;
     }
     void Chase()
     {
         walkPointSet = false;
         agent.SetDestination(target.position);
+        range = chaseRange;
     }
     void Attack()
     {
