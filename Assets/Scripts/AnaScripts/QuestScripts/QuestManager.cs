@@ -98,7 +98,7 @@ public class QuestManager : MonoBehaviour
                     n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
                     nameText.text = n.name;
                     descriptionText.text = n.description;
-                    Debug.Log(n.name+"  curent mission");
+                    //Debug.Log(n.name+"  curent mission");
                 }
                 // Debug.Log(n.name+"  added");
             }

@@ -5,11 +5,19 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+    [System.Serializable]
+    public class PathWay
+    {
+        public Transform pathHolder;
+        public float timeToStay = 4;
 
+    }
     [SerializeField]
-    private Transform[] pathHolder;
+    private PathWay[] path;
 
-    private int walkPoint = 0;
+
+
+    private int walkPoint = -1;
     private bool walkPointSet;
 
     private NavMeshAgent agent;
@@ -34,7 +42,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField]
     float attackTimer;
-    int playerState=0;
+    int playerState = 0;
     float timer = 5;
     float timerforAttack;
     //----------------------------------------------------------------
@@ -42,10 +50,10 @@ public class EnemyBehaviour : MonoBehaviour
     //----------------------------------------------------------------
     private void OnDrawGizmos()
     {
-        foreach (Transform waypoint in pathHolder)
+        foreach (PathWay waypoint in path)
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawSphere(waypoint.position, .1f);
+            Gizmos.DrawSphere(waypoint.pathHolder.position, .1f);
         }
 
         Gizmos.color = Color.red;
@@ -130,18 +138,10 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Patroling()
     {
-       // Debug.Log("patrol");
+        // Debug.Log("patrol");
         if (walkPointSet == false)
         {
-            //if (timer <= 0)
-           // {
-                SearchWalkPoint();
-             //   timer = 10;
-           // }
-           //else
-           // {
-           //     timer -= Time.fixedDeltaTime;
-           // }
+            SearchWalkPoint();
         }
         else
         {
@@ -153,7 +153,7 @@ public class EnemyBehaviour : MonoBehaviour
 
         if (distanceToLocation.magnitude < 1f)
         {
-           // walkPointSet = false;
+            // walkPointSet = false;
             StayPut();
 
         }
@@ -166,7 +166,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (timer <= 0)
         {
             walkPointSet = false;
-            timer = 5;
+            //timer = 5;
         }
         else
         {
@@ -178,8 +178,9 @@ public class EnemyBehaviour : MonoBehaviour
     void SearchWalkPoint()
     {
         walkPoint++;
-        if (walkPoint > pathHolder.Length - 1) walkPoint = 0;
-        target = pathHolder[walkPoint];
+        if (walkPoint > path.Length - 1 || walkPoint < 0) walkPoint = 0;
+        target = path[walkPoint].pathHolder;
+        timer = path[walkPoint].timeToStay;
         walkPointSet = true;
     }
     void Chase()

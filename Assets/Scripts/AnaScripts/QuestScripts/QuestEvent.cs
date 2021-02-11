@@ -34,10 +34,10 @@ public class QuestEvent
     public void UpdateQuestEvent(EventStatus es)
     {
 
-        Debug.Log("Quest " + name);
-        Debug.Log("Chnage state from "+status);
+       // Debug.Log("Quest " + name);
+       // Debug.Log("Chnage state from "+status);
         status = es;
-        Debug.Log("Chnage state to " + status);
+       // Debug.Log("Chnage state to " + status);
     }
 
     public string getID()

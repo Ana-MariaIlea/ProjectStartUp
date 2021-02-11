@@ -252,14 +252,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e381afe1ae8f3d842becb92307d20401, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathHolder:
-  - {fileID: 9061573960069367823}
-  - {fileID: 9061573959926827657}
-  - {fileID: 9061573960335109078}
-  - {fileID: 9061573959734185601}
-  - {fileID: 9061573960367990925}
-  agent: {fileID: 0}
-  target: {fileID: 0}
+  path:
+  - pathHolder: {fileID: 9061573960069367823}
+    timeToStay: 3
+  - pathHolder: {fileID: 9061573959926827657}
+    timeToStay: 4
+  - pathHolder: {fileID: 9061573960335109078}
+    timeToStay: 5
+  - pathHolder: {fileID: 9061573959734185601}
+    timeToStay: 2
+  - pathHolder: {fileID: 9061573960367990925}
+    timeToStay: 1
   whatIsGround:
     serializedVersion: 2
     m_Bits: 512
@@ -275,6 +278,7 @@ MonoBehaviour:
   viewAngle: 180
   targetInSight: 0
   targetInAttackRange: 0
+  attackTimer: 0
 --- !u!1 &9061573960335109079
 GameObject:
   m_ObjectHideFlags: 0
