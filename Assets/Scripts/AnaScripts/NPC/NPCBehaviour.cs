@@ -34,6 +34,8 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     }
 
     
+
+
     public void SetEndState()
     {
         target = safeTarget;
@@ -43,14 +45,15 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     {
         if (health > 0)
             health -= 1;
-        //else GetComponent<QuestCompletion>().Fail();
+        else GetComponent<QuestCompletion>().Fail();
     }
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
+        Debug.Log("OnTriggerEnter NPC");
         if (other.tag == "Player"&&safe==false)
         {
+            Debug.Log("Follow player");
             SetTarget(other.gameObject);
             following = true;
             CapsuleCollider col = GetComponent<CapsuleCollider>();
@@ -58,7 +61,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
             col.center = new Vector3(0, 1, 0);
         }
 
-        if (other.tag == "SafeRoom")
+        if (other.tag == "Volume")
         {
             SetEndState();
             safe = true;
@@ -76,6 +79,12 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
         if (safe)
         {
             agent.SetDestination(target.transform.position);
+        }
+
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            GetComponent<QuestCompletion>().Fail();
+            Destroy(this);
         }
     }
 }
