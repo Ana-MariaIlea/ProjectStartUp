@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class LocationVolume : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
+       // Debug.Log("collision ");
         if (collision.gameObject.tag == "Player")
         {
-            GetComponent<QuestCompletion>().Compltion();
+            //Debug.Log("collision with player");
+            GetComponentInParent<QuestCompletion>().Compltion();
         }
     }
 }

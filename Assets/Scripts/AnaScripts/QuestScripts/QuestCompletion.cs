@@ -15,6 +15,7 @@ public class QuestCompletion : MonoBehaviour
 
         _event.UpdateQuestEvent(QuestEvent.EventStatus.DONE);
         _manager.UpdateQuestOnCompletion(_event);
+        Debug.Log(_event.name + "  done");
     }
 
     public void Fail()
@@ -23,6 +24,7 @@ public class QuestCompletion : MonoBehaviour
 
         _event.UpdateQuestEvent(QuestEvent.EventStatus.FAIL);
         _manager.UpdateQuestOnCompletion(_event);
+        Debug.Log(_event.name + "  fail");
     }
 
     public void Setup(QuestManager m, QuestEvent e)

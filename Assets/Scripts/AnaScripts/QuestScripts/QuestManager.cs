@@ -62,16 +62,27 @@ public class QuestManager : MonoBehaviour
             completion[i].obj.GetComponent<QuestCompletion>().Setup(this, quest.FindQuestEvent(completion[i].questID));
         }
 
-        quest.printPath();
+        for (int i = 0; i < quests.Length; i++)
+        {
+            if (quests[i].order == 1)
+            {
+                quests[i].UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
+            }
+        }
+
+       //quest.printPath();
     }
 
     public void UpdateQuestOnCompletion(QuestEvent e)
     {
+       // Debug.Log("Quest change from  "+e.name + "   " + e.order);
         foreach (QuestEvent n in quest.questEvents)
         {
+            //Debug.Log(n.name+"   "+n.order);
             if (n.order == (e.order + 1))
             {
                 n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
+               // Debug.Log(n.name+"  added");
             }
         }
     }
