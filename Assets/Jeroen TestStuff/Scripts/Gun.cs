@@ -20,7 +20,7 @@ public class Gun : MonoBehaviour
 
     private void Start()
     {
-        cam = GetComponentInChildren<Camera>();
+        cam = transform.parent.GetComponent<Camera>();
         if (cam != null)
             Debug.Log("Cam is not null");
         currentAmmo = ammoPerMag;
@@ -78,11 +78,11 @@ public class Gun : MonoBehaviour
 
             //TODO:
             //Make alien take damage when shot
-            var otherStats = hitInfo.transform.GetComponent<CharacterStats>();
+            var otherStats = hitInfo.transform.GetComponentInParent<CharacterStats>();
             if (otherStats != null)
             {
                 otherStats.TakeDamage(damage);
-                Debug.Log(hitInfo.transform.name);
+                Debug.Log(hitInfo.transform.name + " does " + damage + "damage");
             }
         }
     }

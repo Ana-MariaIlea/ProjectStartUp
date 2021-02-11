@@ -31,7 +31,7 @@ public class PlayerStats : CharacterStats
         }
     }
     /// <summary>
-    /// This regenerates health when 
+    /// This regenerates health when the players health reaches a certain percentage of the maxHealth
     /// </summary>
     private void regenHealth()
     {

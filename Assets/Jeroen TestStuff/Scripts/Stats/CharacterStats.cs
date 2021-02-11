@@ -5,8 +5,6 @@ public class CharacterStats : MonoBehaviour
     public float MaxHealth = 100;
     public float CurrentHealth { get; private set; }
 
-    public Stat damage;
-
     private void Awake()
     {
         CurrentHealth = MaxHealth;
