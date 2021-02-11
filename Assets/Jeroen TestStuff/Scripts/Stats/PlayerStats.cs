@@ -12,6 +12,11 @@ public class PlayerStats : CharacterStats
     [SerializeField] private float regenerateUntil = 20f;
     [SerializeField] private float regenerateFrom = 5f;
 
+    [Header("Test Stuff")]
+    [SerializeField] private float healAmount = 5;
+    [SerializeField] private float currentMedKitAmount = 3;
+    [SerializeField] private float maxMedKitAmount = 5;
+
     private bool canRegenerate = false;
 
     private void Start()
@@ -29,7 +34,24 @@ public class PlayerStats : CharacterStats
         {
             TakeDamage(5);
         }
+        if (Input.GetKeyDown(KeyCode.L))
+            addMedKit();
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            if (currentMedKitAmount > 0)
+            {
+                currentMedKitAmount--;
+                Heal(healAmount);
+            }
+        }
     }
+    public void addMedKit()
+    {
+        if(currentMedKitAmount < maxMedKitAmount)
+            currentMedKitAmount++;
+    }
+
     /// <summary>
     /// This regenerates health when the players health reaches a certain percentage of the maxHealth
     /// </summary>
