@@ -23,6 +23,24 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8322927307587897680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/ProjectStartUpGameSceneSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637486618807156001
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-7981211296861925084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,6 +79,29 @@ MonoBehaviour:
   - Name: Desktop
     Value: 784
   Exists: 1
+--- !u!114 &-7254175289953581242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Shooting
+  m_EditorClassIdentifier: 
+  Path: event:/Shooting
+  guid: fa968cc1a769cc43847d318e4e634a98
+  Banks:
+  - {fileID: -8322927307587897680}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 0
 --- !u!114 &-5727175364646545967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,6 +161,29 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
+--- !u!114 &-3208163644355677682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Walking
+  m_EditorClassIdentifier: 
+  Path: event:/Walking
+  guid: 5172c4dc55ac5f479a77612babde2e5b
+  Banks:
+  - {fileID: -8322927307587897680}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-558759055792075728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +202,26 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 0
+--- !u!114 &-223136359204173373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/ProjectStartUpGameSceneSounds/Build/Desktop/Master.strings.bank
+  SubDir: 
+  lastModified: 637486618807156001
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 784
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,17 +235,17 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 1148379492643341173}
-  - {fileID: -7981211296861925084}
+  - {fileID: -223136359204173373}
+  - {fileID: -8322927307587897680}
   EditorEvents:
-  - {fileID: -8555114959395432941}
-  - {fileID: -5727175364646545967}
+  - {fileID: -3208163644355677682}
+  - {fileID: -7254175289953581242}
   EditorParameters: []
   MasterBanks:
-  - {fileID: -7981211296861925084}
+  - {fileID: -8322927307587897680}
   StringsBanks:
-  - {fileID: 1148379492643341173}
-  stringsBankWriteTime: 637486616882011596
+  - {fileID: -223136359204173373}
+  stringsBankWriteTime: 637486618807156001
   cacheVersion: 3
 --- !u!114 &715746786608864059
 MonoBehaviour:
