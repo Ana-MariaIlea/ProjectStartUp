@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NPC
+  - SafeRoom
+  - Item
+  - Volume
   layers:
   - Default
   - TransparentFX
@@ -14,10 +18,10 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
+  - Ground
+  - Target
+  - Obstacle
+  - Item
   - 
   - 
   - 
