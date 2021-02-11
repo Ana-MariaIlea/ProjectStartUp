@@ -12,9 +12,7 @@ public class EnemyBehaviour : MonoBehaviour
     private int walkPoint = 0;
     private bool walkPointSet;
 
-    [SerializeField]
     private NavMeshAgent agent;
-    [SerializeField]
     private Transform target;
     [SerializeField]
     private LayerMask whatIsGround;

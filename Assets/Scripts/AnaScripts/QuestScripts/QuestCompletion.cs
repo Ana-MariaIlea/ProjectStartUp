@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class QuestCompletion : MonoBehaviour
 {
+    [HideInInspector]
     public QuestManager _manager;
+    [HideInInspector]
     public QuestEvent _event;
 
     public void Compltion()

@@ -55,6 +55,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
             following = true;
             CapsuleCollider col = GetComponent<CapsuleCollider>();
             col.radius = 0.5f;
+            col.center = new Vector3(0, 1, 0);
         }
 
         if (other.tag == "SafeRoom")
