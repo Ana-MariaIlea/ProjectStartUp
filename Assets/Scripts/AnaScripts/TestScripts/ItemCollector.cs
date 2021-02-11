@@ -27,7 +27,7 @@ public class ItemCollector : MonoBehaviour
         if (other.gameObject.tag == "Item")
         {
             //Debug.Log("Trigger Item");
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 other.gameObject.GetComponent<QuestCompletion>().Compltion();
                 Destroy(other.gameObject);

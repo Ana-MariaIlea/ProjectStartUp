@@ -16,6 +16,8 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     private LayerMask whatIsTarget;
     [SerializeField]
     private int health;
+    [SerializeField]
+    private int offset;
 
     bool safe = false;
     bool following = false;
@@ -50,10 +52,10 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
 
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter NPC");
+       // Debug.Log("OnTriggerEnter NPC");
         if (other.tag == "Player"&&safe==false)
         {
-            Debug.Log("Follow player");
+            //Debug.Log("Follow player");
             SetTarget(other.gameObject);
             following = true;
             CapsuleCollider col = GetComponent<CapsuleCollider>();
@@ -73,7 +75,16 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     {
         if (following)
         {
-            agent.SetDestination(target.transform.position);
+            Vector3 distance = transform.position - target.transform.position;
+            if (distance.magnitude < offset)
+            {
+                agent.SetDestination(transform.position);
+            }
+            else
+            {
+                agent.SetDestination(target.transform.position);
+            }
+            
         }
 
         if (safe)
@@ -84,7 +95,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
         if (Input.GetKeyDown(KeyCode.O))
         {
             GetComponent<QuestCompletion>().Fail();
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
