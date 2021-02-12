@@ -9,10 +9,10 @@ public class EnemyStats : CharacterStats
     {
         Debug.Log(transform.name + " died");
 
-        // Change it so that enemy stops moving but the corpse is still in the game 
-        //GetComponent<EnemyBehaviour>().EnemyDies();
-       // GetComponent<EnemyBehaviour>().enabled = false;
-       /// this.enabled = false;
-        Destroy(gameObject);
+        //Change it so that enemy stops moving but the corpse is still in the game 
+       GetComponent<EnemyBehaviour>().EnemyDies();
+        GetComponent<EnemyBehaviour>().enabled = false;
+        this.enabled = false;
+       // Destroy(gameObject);
     }
 }

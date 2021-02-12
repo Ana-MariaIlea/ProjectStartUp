@@ -27,6 +27,7 @@ public class QuestManager : MonoBehaviour
     public CompletionItems[] completion;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
+    public GameObject questDialog;
     private int maxOrder=0;
 
     // Start is called before the first frame update
@@ -72,18 +73,28 @@ public class QuestManager : MonoBehaviour
 
         for (int i = 0; i < quests.Length; i++)
         {
+
+            if (quests[i].order > maxOrder) maxOrder = quests[i].order;
+        }
+
+        StartFirstQuest();
+
+       //quest.printPath();
+    }
+
+    public void StartFirstQuest()
+    {
+        for (int i = 0; i < quests.Length; i++)
+        {
             if (quests[i].order == 1)
             {
                 quests[i].UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
                 nameText.text = quests[i].name;
                 descriptionText.text = quests[i].description;
-               // break;
+                break;
             }
 
-            if (quests[i].order > maxOrder) maxOrder = quests[i].order;
         }
-
-       //quest.printPath();
     }
 
     public void UpdateQuestOnCompletion(QuestEvent e)

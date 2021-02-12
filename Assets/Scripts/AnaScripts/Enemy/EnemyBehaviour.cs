@@ -48,6 +48,7 @@ public class EnemyBehaviour : MonoBehaviour
     float timer = 5;
     float timerforAttack;
     float range=0;
+    EnemyManager enemyManager;
     //----------------------------------------------------------------
     //                  Draw Gizmos
     //----------------------------------------------------------------
@@ -71,6 +72,7 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void Start()
     {
+        enemyManager = FindObjectOfType<EnemyManager>();
         agent = GetComponent<NavMeshAgent>();
         timerforAttack = attackTimer;
         range = sightRange;
@@ -211,7 +213,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     public void EnemyDies()
     {
+        range = 0;
         agent.SetDestination(transform.position);
+        enemyManager.EnemyDies();
     }
 
 }
