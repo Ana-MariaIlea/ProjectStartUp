@@ -21,6 +21,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
 
     bool safe = false;
     bool following = false;
+    bool listening = false;
 
 
     // Start is called before the first frame update
@@ -32,10 +33,10 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     public void SetTarget(GameObject _target)
     {
         target = _target;
-        
+
     }
 
-    
+
 
 
     public void SetEndState()
@@ -50,17 +51,34 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
         else GetComponent<QuestCompletion>().Fail();
     }
 
-    public void OnTriggerEnter(Collider other)
+    public void OnTriggerStay(Collider other)
     {
-       // Debug.Log("OnTriggerEnter NPC");
-        if (other.tag == "Player"&&safe==false)
+        if (other.tag == "Player" && safe == false)
         {
+            // Debug.Log("OnTriggerEnter NPC");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                listening = true;
+                following = true;
+                SetTarget(other.gameObject);
+                //following = true;
+               // CapsuleCollider col = GetComponent<CapsuleCollider>();
+                //col.radius = 0.5f;
+               // col.center = new Vector3(0, 1, 0);
+            }
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                listening = false;
+                following = false;
+                SetTarget(this.gameObject);
+                //following = true;
+               // CapsuleCollider col = GetComponent<CapsuleCollider>();
+               // col.radius = 1.5f;
+               // col.center = new Vector3(0, 1.5f, 0);
+            }
+
             //Debug.Log("Follow player");
-            SetTarget(other.gameObject);
-            following = true;
-            CapsuleCollider col = GetComponent<CapsuleCollider>();
-            col.radius = 0.5f;
-            col.center = new Vector3(0, 1, 0);
+            
         }
 
         if (other.tag == "Volume")
@@ -85,7 +103,7 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
             {
                 agent.SetDestination(target.transform.position);
             }
-            
+
         }
 
         if (safe)

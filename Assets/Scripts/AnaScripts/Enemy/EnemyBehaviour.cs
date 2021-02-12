@@ -22,6 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private NavMeshAgent agent;
     private Transform target;
+    private Transform hostage=null;
     [SerializeField]
     private LayerMask whatIsGround;
     [SerializeField]
@@ -44,6 +45,10 @@ public class EnemyBehaviour : MonoBehaviour
     float attackTimer;
     [SerializeField]
     int damageDone;
+    [SerializeField]
+    int inteligenceLevel;
+    [SerializeField]
+    int inteligenceLevelForHostage;
     int playerState = 0;
     float timer = 5;
     float timerforAttack;
@@ -82,43 +87,55 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
-        Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, range, whatIsTarget);
-        //Debug.Log(hitCollidersSight.Length);
-        if (hitCollidersSight.Length >= 1)
+        if (hostage == null)
         {
-            Vector3 directionToTarget = (hitCollidersSight[0].transform.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
+            Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, range, whatIsTarget);
+            if (hitCollidersSight.Length >= 1)
             {
-                float distToTarget = Vector3.Distance(transform.position, hitCollidersSight[0].transform.position);
-
-                if (!Physics.Raycast(transform.position, directionToTarget, distToTarget, whatIsObstacle))
+                Vector3 directionToTarget = (hitCollidersSight[0].transform.position - transform.position).normalized;
+                if (Vector3.Angle(transform.forward, directionToTarget) < viewAngle / 2)
                 {
-                    targetInSight = true;
-                    target = hitCollidersSight[0].transform;
+                    float distToTarget = Vector3.Distance(transform.position, hitCollidersSight[0].transform.position);
+
+                    if (!Physics.Raycast(transform.position, directionToTarget, distToTarget, whatIsObstacle))
+                    {
+                        targetInSight = true;
+                        target = hitCollidersSight[0].transform;
+                    }
+
                 }
 
             }
+            else { targetInSight = false; }
 
+            Collider[] hitCollidersAttack = Physics.OverlapSphere(transform.position, attackRange, whatIsTarget);
+            if (hitCollidersAttack.Length >= 1)
+            {
+                targetInAttackRange = true;
+                target = hitCollidersAttack[0].transform;
+            }
+            else { targetInAttackRange = false; }
+
+            if (playerState == 1) /// CHANGE, get player reference, player needs state to indicate that it is making sound
+            {
+                Vector3 position = new Vector3(0, 0, 0);
+                CalculateNoisePath(position);
+            }
+
+            if (!targetInSight && !targetInAttackRange) Patroling();
+            if (targetInSight && !targetInAttackRange) Chase();
+            if (targetInSight && targetInAttackRange)
+            {
+                if (inteligenceLevel < inteligenceLevelForHostage)
+                    Attack();
+                else
+                {
+                    int change = Random.Range(1, 100);
+                    if (change < 50) Attack();
+                    else TakeHostage();
+                }
+            }
         }
-        else { targetInSight = false; }
-
-        Collider[] hitCollidersAttack = Physics.OverlapSphere(transform.position, attackRange, whatIsTarget);
-        if (hitCollidersAttack.Length >= 1)
-        {
-            targetInAttackRange = true;
-            target = hitCollidersAttack[0].transform;
-        }
-        else { targetInAttackRange = false; }
-
-        if (playerState == 1) /// CHANGE, get player reference, player needs state to indicate that it is making sound
-        {
-            Vector3 position = new Vector3(0, 0, 0);
-            CalculateNoisePath(position);
-        }
-
-        if (!targetInSight && !targetInAttackRange) Patroling();
-        if (targetInSight && !targetInAttackRange) Chase();
-        if (targetInSight && targetInAttackRange) Attack();
     }
 
     float CalculateNoisePath(Vector3 targetPosition)
@@ -209,6 +226,13 @@ public class EnemyBehaviour : MonoBehaviour
         }
         else timerforAttack -= Time.fixedDeltaTime;
 
+    }
+
+    void TakeHostage()
+    {
+        agent.SetDestination(transform.position);
+        transform.LookAt(target);
+        if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone/3);
     }
 
     public void EnemyDies()
