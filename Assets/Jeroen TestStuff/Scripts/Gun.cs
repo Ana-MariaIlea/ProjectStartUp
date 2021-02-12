@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
 
     private float nextFire = 0f;
 
+    [SerializeField] private ParticleSystem muzzleFlash;
     private Camera cam;
 
     private void Start()
@@ -67,6 +68,7 @@ public class Gun : MonoBehaviour
 
     private void shootGun()
     {
+        muzzleFlash.Play();
         RaycastHit hitInfo;
 
         Vector3 shootDirection = cam.transform.forward;
