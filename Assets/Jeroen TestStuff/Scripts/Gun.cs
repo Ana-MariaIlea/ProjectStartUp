@@ -74,7 +74,7 @@ public class Gun : MonoBehaviour
 
     private void shootGun()
     {
-        //muzzleFlash.Play();
+        muzzleFlash.Play();
         RaycastHit hitInfo;
 
         Vector3 shootDirection = cam.transform.forward;
