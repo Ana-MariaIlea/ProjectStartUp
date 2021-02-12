@@ -42,6 +42,8 @@ public class EnemyBehaviour : MonoBehaviour
 
     [SerializeField]
     float attackTimer;
+    [SerializeField]
+    int damageDone;
     int playerState = 0;
     float timer = 5;
     float timerforAttack;
@@ -200,11 +202,16 @@ public class EnemyBehaviour : MonoBehaviour
         {
             agent.SetDestination(transform.position);
             transform.LookAt(target);
-            if (target.GetComponent<ITakeDamage>() != null) target.GetComponent<ITakeDamage>().TakeDamage();
+            if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone);
             timerforAttack = attackTimer;
         }
         else timerforAttack -= Time.fixedDeltaTime;
 
+    }
+
+    public void EnemyDies()
+    {
+        agent.SetDestination(transform.position);
     }
 
 }

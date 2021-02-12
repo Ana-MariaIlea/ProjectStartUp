@@ -27,6 +27,7 @@ public class QuestManager : MonoBehaviour
     public CompletionItems[] completion;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
+    private int maxOrder=0;
 
     // Start is called before the first frame update
     void Start()
@@ -62,6 +63,8 @@ public class QuestManager : MonoBehaviour
 
         quest.BFS(quests[0].getID());
 
+
+
         for (int i = 0; i < completion.Length; i++)
         {
             completion[i].obj.GetComponent<QuestCompletion>().Setup(this, quest.FindQuestEvent(completion[i].questID));
@@ -74,8 +77,10 @@ public class QuestManager : MonoBehaviour
                 quests[i].UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
                 nameText.text = quests[i].name;
                 descriptionText.text = quests[i].description;
-                break;
+               // break;
             }
+
+            if (quests[i].order > maxOrder) maxOrder = quests[i].order;
         }
 
        //quest.printPath();
@@ -84,23 +89,31 @@ public class QuestManager : MonoBehaviour
     public void UpdateQuestOnCompletion(QuestEvent e)
     {
         // Debug.Log("Quest change from  "+e.name + "   " + e.order);
-        foreach (QuestEvent n in quest.questEvents)
+        if (e.order == maxOrder)
         {
-            //Debug.Log(n.name+"   "+n.order);
-            if (n.order == (e.order + 1))
+            nameText.text = "Quests completed";
+            descriptionText.text = "";
+        }
+        else
+        {
+            foreach (QuestEvent n in quest.questEvents)
             {
-                if(n.status == QuestEvent.EventStatus.DONE || n.status == QuestEvent.EventStatus.FAIL)
+                //Debug.Log(n.name+"   "+n.order);
+                if (n.order == (e.order + 1))
                 {
-                    UpdateQuestOnCompletion(n);
+                    if (n.status == QuestEvent.EventStatus.DONE || n.status == QuestEvent.EventStatus.FAIL)
+                    {
+                        UpdateQuestOnCompletion(n);
+                    }
+                    else
+                    {
+                        n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
+                        nameText.text = n.name;
+                        descriptionText.text = n.description;
+                        //Debug.Log(n.name+"  curent mission");
+                    }
+                    // Debug.Log(n.name+"  added");
                 }
-                else
-                {
-                    n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
-                    nameText.text = n.name;
-                    descriptionText.text = n.description;
-                    //Debug.Log(n.name+"  curent mission");
-                }
-                // Debug.Log(n.name+"  added");
             }
         }
     }
