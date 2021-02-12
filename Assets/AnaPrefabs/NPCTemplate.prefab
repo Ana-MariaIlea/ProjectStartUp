@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 526761949569879233}
   - component: {fileID: 1499625842376244038}
   - component: {fileID: 7106180315764431310}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 4916320369609905434}
   - component: {fileID: 4597339866053340565}
   - component: {fileID: 7822887589092144465}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: NPCTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,6 +173,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   health: 0
+  offset: 0
 --- !u!136 &4597339866053340565
 CapsuleCollider:
   m_ObjectHideFlags: 0

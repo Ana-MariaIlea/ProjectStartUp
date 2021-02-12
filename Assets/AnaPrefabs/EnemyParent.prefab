@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573959734185601}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: point4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 9061573959763595700}
   - component: {fileID: 9061573959763595701}
   - component: {fileID: 9061573959763595702}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573959926827657}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: point2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -164,7 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573960069367823}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: point1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 9061573960275223230}
   - component: {fileID: 9061573960275223228}
   - component: {fileID: 7284618944125601486}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -280,6 +280,7 @@ MonoBehaviour:
   targetInSight: 0
   targetInAttackRange: 0
   attackTimer: 0
+  damageDone: 0
 --- !u!114 &7284618944125601486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -302,7 +303,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573960335109078}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: point3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -332,7 +333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573960367990925}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: point5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -362,7 +363,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573960571531805}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: EnemyParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9061573961068223817}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Path
   m_TagString: Untagged
   m_Icon: {fileID: 0}
