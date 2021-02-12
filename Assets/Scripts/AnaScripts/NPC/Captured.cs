@@ -20,9 +20,19 @@ public class Captured : MonoBehaviour
     public void IsCaptured()
     {
         captured = true;
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+        for (int i = 0; i < scripts.Length; i++)
+        {
+            scripts[0].enabled = false;
+        }
     }
     public void IsReleased()
     {
         captured = false;
+        MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
+        for (int i = 0; i < scripts.Length; i++)
+        {
+            scripts[0].enabled = true;
+        }
     }
 }
