@@ -178,7 +178,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             timer -= Time.fixedDeltaTime;
         }
-        Debug.Log(timer);
+       // Debug.Log(timer);
     }
 
     void SearchWalkPoint()
