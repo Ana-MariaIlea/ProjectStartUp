@@ -18,13 +18,19 @@ public class Gun : MonoBehaviour
 
     [SerializeField] private ParticleSystem muzzleFlash;
     private Camera cam;
+    private LineRenderer line;
 
     private void Start()
     {
+        line = GetComponent<LineRenderer>();
         cam = transform.parent.GetComponent<Camera>();
         if (cam != null)
             Debug.Log("Cam is not null");
         currentAmmo = ammoPerMag;
+
+        line.enabled = false;
+        line.SetVertexCount(2);
+        line.SetWidth(0.1f, 0.1f);
     }
 
     private void Update()
@@ -68,7 +74,7 @@ public class Gun : MonoBehaviour
 
     private void shootGun()
     {
-        muzzleFlash.Play();
+        //muzzleFlash.Play();
         RaycastHit hitInfo;
 
         Vector3 shootDirection = cam.transform.forward;
@@ -78,13 +84,17 @@ public class Gun : MonoBehaviour
         if (Physics.Raycast(cam.transform.position, shootDirection, out hitInfo, range))
         {
 
-            //TODO:
-            //Make alien take damage when shot
+            line.enabled = true;
+            line.SetPosition(0, cam.transform.position);
+            line.SetPosition(1, hitInfo.point);
+
             var otherStats = hitInfo.transform.GetComponentInParent<CharacterStats>();
             if (otherStats != null)
             {
+                
+
                 otherStats.TakeDamage(damage);
-                Debug.Log(hitInfo.transform.name + " does " + damage + "damage");
+                Debug.Log(hitInfo.transform.name + " gets " + damage + " damage");
             }
         }
     }
