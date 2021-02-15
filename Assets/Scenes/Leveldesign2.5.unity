@@ -11931,6 +11931,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5628206821063750667, guid: f4d4c318ca45ef946977fa3c8446c277, type: 3}
+      propertyPath: m_TagString
+      value: Volume
+      objectReference: {fileID: 0}
     - target: {fileID: 5690896237152836732, guid: f4d4c318ca45ef946977fa3c8446c277, type: 3}
       propertyPath: type
       value: 3
@@ -13510,7 +13514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9061573960571531805, guid: e327081b4d468c047a87d1a486e2b3d4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -44.58
+      value: -43.08
       objectReference: {fileID: 0}
     - target: {fileID: 9061573960571531805, guid: e327081b4d468c047a87d1a486e2b3d4, type: 3}
       propertyPath: m_LocalPosition.y
