@@ -9,18 +9,6 @@ public class ItemCollector : MonoBehaviour
     private LayerMask whatIsItem;
 
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
     private void OnTriggerStay(Collider other)
     {
        // Debug.Log("Trigger   "+ other.gameObject.name);
@@ -30,6 +18,11 @@ public class ItemCollector : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 other.gameObject.GetComponent<QuestCompletion>().Compltion();
+
+                if (other.gameObject.GetComponent<ItemDestroyObject>())
+                {
+                    other.gameObject.GetComponent<ItemDestroyObject>().DestroyObjects();
+                }
                 Destroy(other.gameObject);
                 //Debug.Log("Destroy Item");
             }
