@@ -35,6 +35,16 @@ public class GameManager : MonoBehaviour
         IntroScreen.SetActive(false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
+     
+    }
+
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
     public void LoadGame()
     {
@@ -57,8 +67,9 @@ public class GameManager : MonoBehaviour
         }
         loadingScreen.SetActive(false);
         IntroScreen.SetActive(true);
-        audio.Play();
-        yield return new WaitForSeconds(audio.clip.length);
+        //audio.Play();
+        //yield return new WaitForSeconds(audio.clip.length);
+        yield return new WaitForSeconds(3);
         IntroScreen.SetActive(false);
 
         //StartGame.Invoke();
