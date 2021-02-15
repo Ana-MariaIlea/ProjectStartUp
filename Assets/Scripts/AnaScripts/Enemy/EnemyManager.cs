@@ -8,6 +8,8 @@ public class EnemyManager : MonoBehaviour
     void Start()
     {
         numberOfEnemies = FindObjectsOfType<EnemyBehaviour>().Length;
+        Debug.Log(numberOfEnemies);
+
     }
 
     public void EnemySpawns()
@@ -18,10 +20,13 @@ public class EnemyManager : MonoBehaviour
     public void EnemyDies()
     {
         if (numberOfEnemies > 0)
+        {
             numberOfEnemies--;
+            Debug.Log(numberOfEnemies);
+        }
         else
         {
-           if(GetComponent<QuestCompletion>()!=null) GetComponent<QuestCompletion>().Compltion();
+            if (GetComponent<QuestCompletion>() != null) GetComponent<QuestCompletion>().Compltion();
         }
     }
 

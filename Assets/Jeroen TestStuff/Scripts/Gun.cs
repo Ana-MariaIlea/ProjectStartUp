@@ -94,7 +94,7 @@ public class Gun : MonoBehaviour
                 
 
                 otherStats.TakeDamage(damage);
-                Debug.Log(hitInfo.transform.name + " gets " + damage + " damage");
+                //Debug.Log(hitInfo.transform.name + " gets " + damage + " damage");
             }
         }
     }
