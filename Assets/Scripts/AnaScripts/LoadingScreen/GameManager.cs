@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int titleScreenInterger;
     public int mainScreenInterger;
     public GameObject loadingScreen;
+    public GameObject IntroScreen;
     public AudioClip intro;
 
     private AudioSource audio;
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     {
         audio = GetComponent<AudioSource>();
         audio.clip = intro;
+        loadingScreen.SetActive(false);
+        IntroScreen.SetActive(false);
     }
 
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>();
@@ -53,9 +56,12 @@ public class GameManager : MonoBehaviour
             }
         }
         loadingScreen.SetActive(false);
+        IntroScreen.SetActive(true);
         audio.Play();
         yield return new WaitForSeconds(audio.clip.length);
-        StartGame.Invoke();
+        IntroScreen.SetActive(false);
+
+        //StartGame.Invoke();
         //intro.
     }
 }

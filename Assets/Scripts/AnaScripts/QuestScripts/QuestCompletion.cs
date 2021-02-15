@@ -9,11 +9,21 @@ public class QuestCompletion : MonoBehaviour
     [HideInInspector]
     public QuestEvent _event;
 
+    public enum TypeOfQuest
+    {
+        Item,
+        Kill,
+        Escort,
+        Location
+    }
+
+    public TypeOfQuest type;
+
     public void Compltion()
     {
         if (_event.status != QuestEvent.EventStatus.CURRENT)
         {
-            if (_event.status != QuestEvent.EventStatus.DONE && _event.status != QuestEvent.EventStatus.FAIL)
+            if (_event.status != QuestEvent.EventStatus.DONE && _event.status != QuestEvent.EventStatus.FAIL&&type!=TypeOfQuest.Location)
                 _event.UpdateQuestEvent(QuestEvent.EventStatus.DONE);
             return;
         }
