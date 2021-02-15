@@ -23,11 +23,12 @@ public class EnemyManager : MonoBehaviour
         {
             numberOfEnemies--;
             Debug.Log(numberOfEnemies);
+            if(numberOfEnemies == 0)
+            {
+                if (GetComponent<QuestCompletion>() != null) GetComponent<QuestCompletion>().Compltion();
+            }
         }
-        else
-        {
-            if (GetComponent<QuestCompletion>() != null) GetComponent<QuestCompletion>().Compltion();
-        }
+
     }
 
 }
