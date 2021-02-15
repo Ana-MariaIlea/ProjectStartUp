@@ -14,20 +14,20 @@ public class PlayerStats : CharacterStats
     [SerializeField] private float regenerateUntil = 20f;
     [SerializeField] private float regenerateFrom = 5f;
 
+    //[SerializeField] Inventory inventory;
+
     [Header("Test Stuff")]
     [SerializeField] private float healAmount = 5;
     [SerializeField] private float currentMedKitAmount = 3;
     [SerializeField] private float maxMedKitAmount = 5;
 
     private bool canRegenerate = false;
-
-    private PlayerInventory inventory;
+    
 
     private void Start()
     {
         if (regenPercentage < 0f || regenPercentage > 1f)
             Debug.LogException(new System.Exception("regenPercentage out of range. Value must be between 0 and 1"));
-        inventory = GetComponent<PlayerInventory>();
     }
 
     // Update is called once per frame
@@ -41,10 +41,14 @@ public class PlayerStats : CharacterStats
         if (Input.GetKeyDown(KeyCode.L))
             addMedKit();
     }
+
     public void addMedKit()
     {
-        if(currentMedKitAmount < maxMedKitAmount)
+        if (currentMedKitAmount < maxMedKitAmount)
+        {
             currentMedKitAmount++;
+            //inventory.AddItem();
+        }
     }
 
     /// <summary>

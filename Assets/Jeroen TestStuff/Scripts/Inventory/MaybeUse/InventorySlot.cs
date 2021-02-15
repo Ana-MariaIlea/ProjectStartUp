@@ -19,7 +19,14 @@ public class InventorySlot : ItemSlotUI, IDropHandler
 
     public override void OnDrop(PointerEventData eventData)
     {
-        //Leave empty just following a tutorial and he made this, but it's not necessary will remove this
+        ItemDragHandler itemDragHandler = eventData.pointerDrag.GetComponent<ItemDragHandler>();
+
+        if (itemDragHandler == null) return;
+
+        if ((itemDragHandler.ItemSlotUI as InventorySlot) != null)
+        {
+            inventory.ItemContainer.Swap(itemDragHandler.ItemSlotUI.SlotIndex, SlotIndex);
+        }
     }
 
     public override void UpdateSlotUI()

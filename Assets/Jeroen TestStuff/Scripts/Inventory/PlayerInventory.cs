@@ -1,53 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
+    [SerializeField] private float currentMedKitAmount = 3;
+    [SerializeField] private float maxMedKitAmount = 5;
     [SerializeField] private bool hasPistol = true;
     [SerializeField] private bool hasRifle = false;
-    [SerializeField][Min(0)] private int medKitAmount = 3;
-    [SerializeField][Min(1)] private int maxMedKitAmount = 5;
-    [SerializeField] [Min(1)] private float healAmount = 5;
-
-    private PlayerStats playerStats;
-
-    private void Start()
-    {
-        playerStats.GetComponent<PlayerStats>();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            if (medKitAmount > 0)
-            {
-                medKitAmount--;
-                playerStats.Heal(healAmount);
-            }
-        }
-    }
+    [SerializeField] TextMeshProUGUI MedKitAmountText;
+    [SerializeField] Image[] images = new Image[3];
 
     public void AddMedKit()
     {
-        medKitAmount++;
+        currentMedKitAmount++;
+        updateMedText();
     }
 
-    public bool GetHasPistol()
+    private void updateMedText()
     {
-        return hasPistol;
+        if (images[2].IsActive())
+        {
+            MedKitAmountText.text = currentMedKitAmount.ToString();
+        }
+        else
+            return;
     }
-
-    public bool GetHasRifle()
-    {
-        return hasRifle;
-    }
-
-    public int GetMedKitAmount()
-    {
-        return medKitAmount;
-    }
-
-
 }

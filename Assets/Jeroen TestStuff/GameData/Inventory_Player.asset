@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7817ec5d34fb3734e8ddd0b2ac72dd7e, type: 3}
   m_Name: Inventory_Player
   m_EditorClassIdentifier: 
-  onInventoryItemsUpdated: {fileID: 0}
+  onInventoryItemsUpdated: {fileID: 11400000, guid: a8d8d19473f8e514887920520900a634, type: 2}
+  itemSlot:
+    item: {fileID: 11400000, guid: 1cdd0d4713491bd498c34cbb00da1f0c, type: 2}
+    quantity: 2

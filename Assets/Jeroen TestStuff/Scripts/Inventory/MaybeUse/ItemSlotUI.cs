@@ -6,7 +6,7 @@ public abstract class ItemSlotUI : MonoBehaviour, IDropHandler
 {
     [SerializeField] protected Image itemIcon = null;
 
-    protected int SlotIndex { get; private set; }
+    public int SlotIndex { get; private set; }
 
     public abstract Item SlotItem { get; set; }
 

@@ -7,6 +7,8 @@ public class ItemContainer : IItemContainer
 
     public Action OnItemsUpdated = delegate { };
 
+    public ItemSlot GetSlotByInec(int index) => itemSlots[index];
+
     public ItemContainer(int size) => itemSlots = new ItemSlot[size];
 
     public ItemSlot GetSlotByIndex(int index) => itemSlots[index];
@@ -152,9 +154,11 @@ public class ItemContainer : IItemContainer
 
                 if (firstSlot.quantity <= secondSlotRemainingSpace)
                 {
-                    secondSlot.quantity += firstSlot.quantity;
+                    itemSlots[indexTwo].quantity += firstSlot.quantity;
 
                     itemSlots[indexOne] = new ItemSlot();
+
+                    OnItemsUpdated.Invoke();
 
                     return;
                 }
@@ -163,5 +167,7 @@ public class ItemContainer : IItemContainer
 
         itemSlots[indexOne] = secondSlot;
         itemSlots[indexTwo] = firstSlot;
+
+        OnItemsUpdated.Invoke();
     }
 }

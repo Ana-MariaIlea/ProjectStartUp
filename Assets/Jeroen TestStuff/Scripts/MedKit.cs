@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class MedKit : MonoBehaviour
 {
+
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             collision.transform.GetComponent<PlayerStats>().addMedKit();
             Destroy(this.gameObject);

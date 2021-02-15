@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class BaseItem : MonoBehaviour
 {
-    [SerializeField] private string title;
-
-    public ItemType itemType { get; private set; }
-
-    public enum ItemType
+    // Start is called before the first frame update
+    void Start()
     {
-        Pistol,
-        Rifle,
-        MedKit
+        
     }
 
-    public string GetTitle()
+    // Update is called once per frame
+    void Update()
     {
-        return title;
+        
     }
 }
