@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{9998f027-1880-4757-a06e-3377ff1780af}">
+		<property name="assetPath">
+			<value>Medikit_V2.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>2.5774149659863945</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fb0e7822-423b-4863-938d-3db872d6273c}</destination>
+		</relationship>
+	</object>
+</objects>

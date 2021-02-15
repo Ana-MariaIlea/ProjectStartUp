@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.00.00">
+	<object class="AudioFile" id="{eeb57e83-29bd-409a-96f2-b5f0dfc2d48e}">
+		<property name="assetPath">
+			<value>IntenseOminous-and-deep-Ambience.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>66.107845804988656</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{fb0e7822-423b-4863-938d-3db872d6273c}</destination>
+		</relationship>
+	</object>
+</objects>
