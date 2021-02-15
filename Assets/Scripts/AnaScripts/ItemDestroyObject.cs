@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemDestroyObject : MonoBehaviour
 {
-
+    [SerializeField]
     public GameObject[] objectsToDestroy;
     // Start is called before the first frame update
 
