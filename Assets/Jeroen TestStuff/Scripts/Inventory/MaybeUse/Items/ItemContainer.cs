@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class ItemContainer : IItemContainer
@@ -120,6 +121,7 @@ public class ItemContainer : IItemContainer
                         itemSlot.quantity -= itemSlots[i].quantity;
 
                         itemSlots[i] = new ItemSlot();
+                        OnItemsUpdated.Invoke();
                     }
                     else
                     {
@@ -137,6 +139,7 @@ public class ItemContainer : IItemContainer
                 }
             }
         }
+        OnItemsUpdated.Invoke();
     }
 
     public void Swap(int indexOne, int indexTwo)

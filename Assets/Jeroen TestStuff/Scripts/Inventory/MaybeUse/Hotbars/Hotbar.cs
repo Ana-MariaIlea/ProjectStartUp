@@ -11,4 +11,6 @@ public class Hotbar : MonoBehaviour
             if (hotbarSlot.AddItem(itemToAdd)) return;
         }
     }
+
+    public HotbarSlot GetIndex(int index) => hotbarSlots[index];
 }

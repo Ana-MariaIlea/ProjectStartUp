@@ -6,6 +6,7 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
 {
     [SerializeField] private Inventory inventory = null;
     [SerializeField] private TextMeshProUGUI itemQuantityText = null;
+    [SerializeField] private PlayerStats playerStats = null;
 
     private Item slotItem = null;
 
@@ -28,7 +29,16 @@ public class HotbarSlot : ItemSlotUI, IDropHandler
     {
         if (index != SlotIndex) return;
 
-        //Use item
+        if (slotItem is HealthItem)
+        {
+            HealthItem item = slotItem as HealthItem;
+            playerStats.Heal(item.HealAmount);
+
+            var itemToRemove = new ItemSlot((InventoryItem)slotItem, 1);
+            inventory.ItemContainer.RemoveItem(itemToRemove); //This line of code can kill itself, I hate it
+            UpdateSlotUI();
+        }
+        
     }
 
     public override void OnDrop(PointerEventData eventData)

@@ -1,10 +1,11 @@
 using System.Text;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Consumable Item", menuName = "Items/Med-Kit")]
+[CreateAssetMenu(fileName = "New Med-Kit", menuName = "Items/Med-Kit")]
 public class HealthItem : InventoryItem
 {
     [Header("Health Item Data")]
+    [SerializeField] private float healAmount = 25f;
     [SerializeField] private string useText = "Does something";
 
     public override string GetInfoDisplayText()
@@ -17,4 +18,5 @@ public class HealthItem : InventoryItem
         return builder.ToString();
     }
 
+    public float HealAmount => healAmount;
 }
