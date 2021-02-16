@@ -11,7 +11,6 @@ public class HealthItem : InventoryItem
     {
         StringBuilder builder = new StringBuilder();
 
-        builder.Append(name).AppendLine();
         builder.Append("<color=green>Use: ").Append(useText).Append("</color>").AppendLine();
         builder.Append("Max Stack: ").Append(MaxStack).AppendLine();
 

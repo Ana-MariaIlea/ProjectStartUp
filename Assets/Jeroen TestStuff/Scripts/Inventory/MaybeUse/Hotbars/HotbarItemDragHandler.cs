@@ -1,6 +1,6 @@
 using UnityEngine.EventSystems;
 
-public class InventoryItemDragHandler : ItemDragHandler
+public class HotbarItemDragHandler : ItemDragHandler
 {
     public override void OnPointerUp(PointerEventData eventData)
     {
@@ -10,7 +10,7 @@ public class InventoryItemDragHandler : ItemDragHandler
 
             if (eventData.hovered.Count == 0)
             {
-                //Destroy item or drop item
+                (ItemSlotUI as HotbarSlot).SlotItem = null;
             }
         }
     }
