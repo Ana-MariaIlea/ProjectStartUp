@@ -27,7 +27,6 @@ public class QuestManager : MonoBehaviour
     public CompletionItems[] completion;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
-    public GameObject questDialog;
     private int maxOrder=0;
 
     // Start is called before the first frame update

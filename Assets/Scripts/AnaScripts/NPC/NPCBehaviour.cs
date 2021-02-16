@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using TMPro;
 
 public class NPCBehaviour : MonoBehaviour, ITakeDamage
 {
@@ -18,6 +19,8 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     private int health;
     [SerializeField]
     private int offset;
+    [SerializeField]
+    private TextMeshProUGUI helpText;
 
     bool safe = false;
     bool following = false;
@@ -55,6 +58,14 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
     {
         if (other.tag == "Player" && safe == false)
         {
+            if (following == true)
+            {
+                helpText.text = "Press Q to stop following";
+            }
+            else
+            {
+                helpText.text = "Press E to start following";
+            }
             // Debug.Log("OnTriggerEnter NPC");
             if (Input.GetKeyDown(KeyCode.E))
             {
@@ -87,6 +98,14 @@ public class NPCBehaviour : MonoBehaviour, ITakeDamage
             safe = true;
             following = false;
             GetComponent<QuestCompletion>().Compltion();
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Player" && safe == false)
+        {
+            helpText.text = "";
         }
     }
 
