@@ -366,6 +366,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: NPC
       objectReference: {fileID: 0}
+    - target: {fileID: 4571395193611795275, guid: 1d4d81fd3b027c9419f2cadf06d1f295, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4597339866053340565, guid: 1d4d81fd3b027c9419f2cadf06d1f295, type: 3}
       propertyPath: m_Direction
       value: 1
@@ -2889,6 +2893,7 @@ GameObject:
   m_Component:
   - component: {fileID: 438452033}
   - component: {fileID: 438452032}
+  - component: {fileID: 438452034}
   m_Layer: 0
   m_Name: QuestManager
   m_TagString: Untagged
@@ -2977,6 +2982,9 @@ MonoBehaviour:
     questID: gite
   nameText: {fileID: 1100765562}
   descriptionText: {fileID: 1523776841}
+  missionComplete: {fileID: 8300000, guid: 8dc29932848412e4c8284efede5e1cd4, type: 3}
+  missionFail: {fileID: 8300000, guid: 9f88bd549b88ed74889f694574a488d5, type: 3}
+  missionDone: {fileID: 8300000, guid: d6e1db753dc41394b85f8c8049692c01, type: 3}
 --- !u!4 &438452033
 Transform:
   m_ObjectHideFlags: 0
@@ -2991,6 +2999,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &438452034
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438452031}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &439158426
 GameObject:
   m_ObjectHideFlags: 0
@@ -4787,6 +4891,10 @@ PrefabInstance:
     - target: {fileID: 2637278217689470847, guid: 1d4d81fd3b027c9419f2cadf06d1f295, type: 3}
       propertyPath: m_TagString
       value: NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 4571395193611795275, guid: 1d4d81fd3b027c9419f2cadf06d1f295, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4597339866053340565, guid: 1d4d81fd3b027c9419f2cadf06d1f295, type: 3}
       propertyPath: m_Direction
@@ -12511,6 +12619,14 @@ PrefabInstance:
       propertyPath: type
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5690896237152836732, guid: f4d4c318ca45ef946977fa3c8446c277, type: 3}
+      propertyPath: missionFail
+      value: 
+      objectReference: {fileID: 8300000, guid: 9f88bd549b88ed74889f694574a488d5, type: 3}
+    - target: {fileID: 5690896237152836732, guid: f4d4c318ca45ef946977fa3c8446c277, type: 3}
+      propertyPath: missionComplete
+      value: 
+      objectReference: {fileID: 8300000, guid: 8dc29932848412e4c8284efede5e1cd4, type: 3}
     - target: {fileID: 8185419690610195986, guid: f4d4c318ca45ef946977fa3c8446c277, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.42

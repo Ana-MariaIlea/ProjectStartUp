@@ -311,7 +311,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d716c33afb6d1d4a8d0f65b2323684a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footSteps: []
+  footSteps:
+  - {fileID: 8300000, guid: 121f9774d6d600a418a1b57b10d2ad8e, type: 3}
+  - {fileID: 8300000, guid: b38a0257d5e10344697a6e911f05942f, type: 3}
+  - {fileID: 8300000, guid: 570ed43db8f1ab34d89c2593cd0ea4bd, type: 3}
+  - {fileID: 8300000, guid: 7c5cb2880b0bcce4881b24edca1039e1, type: 3}
   dyingSounds:
   - {fileID: 8300000, guid: 295928e8fd5572644835ae268f39a4f0, type: 3}
   - {fileID: 8300000, guid: f238c9a5af1b3a8448c3bc05fd3b49c6, type: 3}

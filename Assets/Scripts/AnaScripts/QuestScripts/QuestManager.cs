@@ -27,14 +27,25 @@ public class QuestManager : MonoBehaviour
     public CompletionItems[] completion;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
-    private int maxOrder=0;
+    [SerializeField]
+    private AudioClip missionComplete;
+    [SerializeField]
+    private AudioClip missionFail;
+    [SerializeField]
+    private AudioClip missionDone;
+
+    private AudioSource audio;
+
+    private int maxOrder = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+
         for (int i = 0; i < quests.Length; i++)
         {
-            quests[i] = quest.AddQuestEvent(quests[i].name, quests[i].description,quests[i].id);
+            quests[i] = quest.AddQuestEvent(quests[i].name, quests[i].description, quests[i].id);
         }
 
         for (int i = 0; i < connections.Length; i++)
@@ -78,7 +89,7 @@ public class QuestManager : MonoBehaviour
 
         StartFirstQuest();
 
-       //quest.printPath();
+        //quest.printPath();
     }
 
     public void StartFirstQuest()
@@ -96,12 +107,14 @@ public class QuestManager : MonoBehaviour
         }
     }
 
-    public void UpdateQuestOnCompletion(QuestEvent e)
+    public void UpdateQuestOnCompletion(QuestEvent e, string status)
     {
         // Debug.Log("Quest change from  "+e.name + "   " + e.order);
+
         if (e.order == maxOrder)
         {
             nameText.text = "Quests completed";
+            audio.PlayOneShot(missionDone);
             descriptionText.text = "";
         }
         else
@@ -111,12 +124,25 @@ public class QuestManager : MonoBehaviour
                 //Debug.Log(n.name+"   "+n.order);
                 if (n.order == (e.order + 1))
                 {
-                    if (n.status == QuestEvent.EventStatus.DONE || n.status == QuestEvent.EventStatus.FAIL)
+                    if (n.status == QuestEvent.EventStatus.DONE)
                     {
-                        UpdateQuestOnCompletion(n);
+                        UpdateQuestOnCompletion(n,"c");
+                    }
+                    else if (n.status == QuestEvent.EventStatus.FAIL)
+                    {
+                        UpdateQuestOnCompletion(n, "f");
                     }
                     else
                     {
+                        if (status == "c")
+                        {
+                            audio.PlayOneShot(missionComplete);
+
+                        }
+                        else if (status == "f")
+                        {
+                            audio.PlayOneShot(missionFail);
+                        }
                         n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
                         nameText.text = n.name;
                         descriptionText.text = n.description;

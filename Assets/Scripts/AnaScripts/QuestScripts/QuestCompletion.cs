@@ -9,6 +9,18 @@ public class QuestCompletion : MonoBehaviour
     [HideInInspector]
     public QuestEvent _event;
 
+   // [SerializeField]
+   // private AudioClip missionComplete;
+  //  [SerializeField]
+   // private AudioClip missionFail;
+
+   // private AudioSource audio;
+
+    private void Start()
+    {
+       // audio = GetComponent<AudioSource>();
+    }
+
     public enum TypeOfQuest
     {
         Item,
@@ -29,7 +41,10 @@ public class QuestCompletion : MonoBehaviour
         }
 
         _event.UpdateQuestEvent(QuestEvent.EventStatus.DONE);
-        _manager.UpdateQuestOnCompletion(_event);
+       // Debug.Log(audio);
+       // Debug.Log(missionComplete.name);
+       // audio.PlayOneShot(missionComplete);
+        _manager.UpdateQuestOnCompletion(_event,"c");
         Debug.Log(_event.name + "  done");
     }
 
@@ -43,7 +58,8 @@ public class QuestCompletion : MonoBehaviour
         }
 
         _event.UpdateQuestEvent(QuestEvent.EventStatus.FAIL);
-        _manager.UpdateQuestOnCompletion(_event);
+       // audio.PlayOneShot(missionFail);
+        _manager.UpdateQuestOnCompletion(_event,"f");
         Debug.Log(_event.name + "  fail");
     }
 
