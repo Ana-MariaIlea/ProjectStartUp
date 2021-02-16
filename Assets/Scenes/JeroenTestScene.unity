@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &365670103 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7571117832339809465, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
-  m_PrefabInstance: {fileID: 2880364100274873436}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52da28213bca44418029792af463cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &435570670
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,17 +500,6 @@ MonoBehaviour:
   m_AreaLightEmissiveMeshShadowCastingMode: 0
   m_AreaLightEmissiveMeshMotionVectorGenerationMode: 0
   m_AreaLightEmissiveMeshLayer: -1
---- !u!114 &1411633127 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7571117831993102843, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
-  m_PrefabInstance: {fileID: 2880364100274873436}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52da28213bca44418029792af463cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1438452424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -719,27 +697,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6584ca49b34951a4e8ce02d5f21d4cd8, type: 3}
---- !u!1 &2026390246 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2026390246, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
-  m_PrefabInstance: {fileID: 2880364100274873436}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2026390248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2026390246}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0f023421361c19a45a04f0500adce12b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hotbarSlots:
-  - {fileID: 9028192210476712489}
-  - {fileID: 1411633127}
-  - {fileID: 365670103}
 --- !u!1001 &2023555907232209126
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1000,10 +957,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2026390246, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
-      propertyPath: m_Name
-      value: HotbarBase
-      objectReference: {fileID: 0}
     - target: {fileID: 247743002028377526, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
       propertyPath: m_Name
       value: HotbarUI
@@ -1060,10 +1013,6 @@ PrefabInstance:
       propertyPath: playerStats
       value: 
       objectReference: {fileID: 1744357360}
-    - target: {fileID: 2372794478855977045, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6920184917355673399, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1235,14 +1184,3 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1574664fd8b0c14f861b2c37699b1cb, type: 3}
---- !u!114 &9028192210476712489 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1466088209030807429, guid: b7ce8f072a36e7041a613b8401f2c774, type: 3}
-  m_PrefabInstance: {fileID: 2880364100274873436}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b52da28213bca44418029792af463cf3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
