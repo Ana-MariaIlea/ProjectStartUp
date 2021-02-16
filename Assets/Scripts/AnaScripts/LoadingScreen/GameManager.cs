@@ -67,12 +67,12 @@ public class GameManager : MonoBehaviour
         }
         loadingScreen.SetActive(false);
         IntroScreen.SetActive(true);
-        //audio.Play();
-        //yield return new WaitForSeconds(audio.clip.length);
-        yield return new WaitForSeconds(3);
+        audio.Play();
+        yield return new WaitForSeconds(audio.clip.length);
+        //yield return new WaitForSeconds(3);
         IntroScreen.SetActive(false);
 
-        //StartGame.Invoke();
+        StartGame.Invoke();
         //intro.
     }
 }

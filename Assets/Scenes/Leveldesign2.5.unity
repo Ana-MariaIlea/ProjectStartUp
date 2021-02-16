@@ -7349,6 +7349,10 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8757214944729285046, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757214944729285046, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -11531,6 +11535,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1807982904}
   - component: {fileID: 1807982903}
+  - component: {fileID: 1807982905}
   m_Layer: 0
   m_Name: TemporaryExit
   m_TagString: Untagged
@@ -11564,6 +11569,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1807982905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1807982902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 498a9f0bdfedbe344924b0bf3c683c54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 1857784916}
 --- !u!1 &1814180381
 GameObject:
   m_ObjectHideFlags: 0
