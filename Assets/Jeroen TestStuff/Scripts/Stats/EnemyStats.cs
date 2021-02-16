@@ -14,6 +14,11 @@ public class EnemyStats : CharacterStats
         {
             GetComponent<EnemyBehaviour>().EnemyDies();
             GetComponent<EnemyBehaviour>().enabled = false;
+            if(GetComponent<EnemySounds>())
+            {
+                GetComponent<EnemySounds>().Die();
+                GetComponent<EnemySounds>().enabled = false;
+            }
             GetComponentInChildren<MeshRenderer>().material = deathMaterial;
         }
         
