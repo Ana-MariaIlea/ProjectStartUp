@@ -8,8 +8,6 @@ public class ItemContainer : IItemContainer
 
     public Action OnItemsUpdated = delegate { };
 
-    public ItemSlot GetSlotByInec(int index) => itemSlots[index];
-
     public ItemContainer(int size) => itemSlots = new ItemSlot[size];
 
     public ItemSlot GetSlotByIndex(int index) => itemSlots[index];

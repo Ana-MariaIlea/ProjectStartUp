@@ -4972,7 +4972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c088c27bfb2ba049bb0fe35599505a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPistol: 0
+  isPistol: 1
   damage: 5
   ammoPerMag: 30
   currentAmmo: 0
@@ -5300,9 +5300,11 @@ GameObject:
   - component: {fileID: 8757214944724198102}
   - component: {fileID: 8757214944726374486}
   - component: {fileID: 8757214944411533126}
+  - component: {fileID: 1744357359}
+  - component: {fileID: 1744357353}
   m_Layer: 0
   m_Name: FPS Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5367,7 +5369,7 @@ MonoBehaviour:
     MaximumX: 90
     smooth: 0
     smoothTime: 5
-    lockCursor: 1
+    lockCursor: 0
   m_UseFovKick: 1
   m_FovKick:
     Camera: {fileID: 0}
@@ -5593,3 +5595,38 @@ MonoBehaviour:
   healAmount: 5
   currentMedKitAmount: 3
   maxMedKitAmount: 5
+--- !u!136 &1744357359
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757214944729285046}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6
+  m_Height: 1.9
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.1, z: 0}
+--- !u!114 &1744357353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8757214944729285046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe29d44026fc7ba40983224709dce5a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMedKitAmount: 3
+  maxMedKitAmount: 5
+  hasPistol: 1
+  hasRifle: 0
+  MedKitAmountText: {fileID: 0}
+  images:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
