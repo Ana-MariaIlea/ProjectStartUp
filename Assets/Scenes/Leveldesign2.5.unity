@@ -12543,7 +12543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498a9f0bdfedbe344924b0bf3c683c54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 1857784916}
+  obejectsToEnable:
+  - {fileID: 1857784916}
+  - {fileID: 1524902500}
+  - {fileID: 975104068}
 --- !u!1 &1814180381
 GameObject:
   m_ObjectHideFlags: 0

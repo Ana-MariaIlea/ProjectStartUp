@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class StartLevel : MonoBehaviour
 {
-   // public GameObject Image;
-    public GameObject Player;
+    // public GameObject Image;
+    public GameObject[] obejectsToEnable;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +14,10 @@ public class StartLevel : MonoBehaviour
 
     public void OnGameStart()
     {
-        Player.SetActive(true);
+        for (int i = 0; i < obejectsToEnable.Length; i++)
+        {
+            obejectsToEnable[i].SetActive(true);
+        }
        // Image.SetActive(false);
     }
 }
