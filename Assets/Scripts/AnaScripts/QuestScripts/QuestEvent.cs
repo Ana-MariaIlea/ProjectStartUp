@@ -14,6 +14,7 @@ public class QuestEvent
     }
 
     public string name;
+    [TextArea(3,10)]
     public string description;
     public string id;
     [HideInInspector]

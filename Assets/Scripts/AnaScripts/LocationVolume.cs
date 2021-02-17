@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LocationVolume : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerStay(Collider collision)
     {
         // Debug.Log("collision ");
         if (collision.gameObject.tag == "Player")

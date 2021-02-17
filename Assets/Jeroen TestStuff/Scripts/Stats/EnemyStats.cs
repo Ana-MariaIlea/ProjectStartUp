@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class EnemyStats : CharacterStats
 {
-
+    public Material deathMaterial;
     public override void handleDeath()
     {
         Debug.Log(transform.name + " died");
-        Destroy(gameObject);
+
+        //Change it so that enemy stops moving but the corpse is still in the game 
+        if (GetComponent<EnemyBehaviour>().enabled == true)
+        {
+            GetComponent<EnemyBehaviour>().EnemyDies();
+            GetComponent<EnemyBehaviour>().enabled = false;
+            if(GetComponent<EnemySounds>())
+            {
+                GetComponent<EnemySounds>().Die();
+                GetComponent<EnemySounds>().enabled = false;
+            }
+            GetComponentInChildren<MeshRenderer>().material = deathMaterial;
+        }
+        
+       // this.enabled = false;
+       // Destroy(gameObject);
     }
 }

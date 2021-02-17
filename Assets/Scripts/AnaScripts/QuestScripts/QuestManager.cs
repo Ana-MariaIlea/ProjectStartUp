@@ -27,13 +27,25 @@ public class QuestManager : MonoBehaviour
     public CompletionItems[] completion;
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI descriptionText;
+    [SerializeField]
+    private AudioClip missionComplete;
+    [SerializeField]
+    private AudioClip missionFail;
+    [SerializeField]
+    private AudioClip missionDone;
+
+    private AudioSource audio;
+
+    private int maxOrder = 0;
 
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
+
         for (int i = 0; i < quests.Length; i++)
         {
-            quests[i] = quest.AddQuestEvent(quests[i].name, quests[i].description,quests[i].id);
+            quests[i] = quest.AddQuestEvent(quests[i].name, quests[i].description, quests[i].id);
         }
 
         for (int i = 0; i < connections.Length; i++)
@@ -62,11 +74,26 @@ public class QuestManager : MonoBehaviour
 
         quest.BFS(quests[0].getID());
 
+
+
         for (int i = 0; i < completion.Length; i++)
         {
             completion[i].obj.GetComponent<QuestCompletion>().Setup(this, quest.FindQuestEvent(completion[i].questID));
         }
 
+        for (int i = 0; i < quests.Length; i++)
+        {
+
+            if (quests[i].order > maxOrder) maxOrder = quests[i].order;
+        }
+
+        StartFirstQuest();
+
+        //quest.printPath();
+    }
+
+    public void StartFirstQuest()
+    {
         for (int i = 0; i < quests.Length; i++)
         {
             if (quests[i].order == 1)
@@ -76,31 +103,53 @@ public class QuestManager : MonoBehaviour
                 descriptionText.text = quests[i].description;
                 break;
             }
-        }
 
-       //quest.printPath();
+        }
     }
 
-    public void UpdateQuestOnCompletion(QuestEvent e)
+    public void UpdateQuestOnCompletion(QuestEvent e, string status)
     {
         // Debug.Log("Quest change from  "+e.name + "   " + e.order);
-        foreach (QuestEvent n in quest.questEvents)
+
+        if (e.order == maxOrder)
         {
-            //Debug.Log(n.name+"   "+n.order);
-            if (n.order == (e.order + 1))
+            nameText.text = "Quests completed";
+            audio.PlayOneShot(missionDone);
+            descriptionText.text = "";
+        }
+        else
+        {
+            foreach (QuestEvent n in quest.questEvents)
             {
-                if(n.status == QuestEvent.EventStatus.DONE || n.status == QuestEvent.EventStatus.FAIL)
+                //Debug.Log(n.name+"   "+n.order);
+                if (n.order == (e.order + 1))
                 {
-                    UpdateQuestOnCompletion(n);
+                    if (n.status == QuestEvent.EventStatus.DONE)
+                    {
+                        UpdateQuestOnCompletion(n,"c");
+                    }
+                    else if (n.status == QuestEvent.EventStatus.FAIL)
+                    {
+                        UpdateQuestOnCompletion(n, "f");
+                    }
+                    else
+                    {
+                        if (status == "c")
+                        {
+                            audio.PlayOneShot(missionComplete);
+
+                        }
+                        else if (status == "f")
+                        {
+                            audio.PlayOneShot(missionFail);
+                        }
+                        n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
+                        nameText.text = n.name;
+                        descriptionText.text = n.description;
+                        //Debug.Log(n.name+"  curent mission");
+                    }
+                    // Debug.Log(n.name+"  added");
                 }
-                else
-                {
-                    n.UpdateQuestEvent(QuestEvent.EventStatus.CURRENT);
-                    nameText.text = n.name;
-                    descriptionText.text = n.description;
-                    //Debug.Log(n.name+"  curent mission");
-                }
-                // Debug.Log(n.name+"  added");
             }
         }
     }
