@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 8ccea5fe88b66b4478c48dd6e5c98637
+guid: 36c994c5b97f28a449ecf73e1238c21b
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Zombie Scream
+    second: mixamo.com
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -39,7 +39,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Zombie Scream
+      name: mixamo.com
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
@@ -530,13 +530,13 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: rigged_3@Zombie Scream(Clone)
+    - name: ScreamAnimation(Clone)
       parentName: 
       position: {x: 0.00087921094, y: -0.023824787, z: -0.046476744}
       rotation: {x: 0.10060578, y: 0.16412494, z: 0.01567111, w: 0.9811707}
       scale: {x: 0.2222, y: 0.2222, z: 0.2222}
     - name: JNT_SPINE_ROOT
-      parentName: rigged_3@Zombie Scream(Clone)
+      parentName: ScreamAnimation(Clone)
       position: {x: 0.031177877, y: 1.1305951, z: -0.108299725}
       rotation: {x: -0.36643764, y: 0.45863003, z: -0.466283, w: 0.6617871}
       scale: {x: 1, y: 1, z: 1}
