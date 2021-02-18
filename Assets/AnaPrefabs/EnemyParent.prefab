@@ -133,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9061573960275223231}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.361342, y: 0, z: -3.4860044}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 5413137199481660520}
@@ -252,7 +252,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -497,7 +497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.1
+      value: 0.119
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_LocalRotation.w
@@ -505,15 +505,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -527,10 +527,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8400571952642182608, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8400571952642182608, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8400571952642182608, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
       propertyPath: m_Name
       value: alien_rigged
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8b79232f8efa0e84284d18748c35f459, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e6c49d0d6c1da04e863cbe4dcbe3e57, type: 3}
 --- !u!1 &4635474187866013394 stripped

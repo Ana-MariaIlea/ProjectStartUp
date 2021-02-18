@@ -15,7 +15,7 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private PathWay[] path;
 
-
+    private Animator anim;
 
     private int walkPoint = -1;
     private bool walkPointSet;
@@ -79,6 +79,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         enemyManager = FindObjectOfType<EnemyManager>();
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponentInChildren<Animator>();
         timerforAttack = attackTimer;
         range = sightRange;
     }
@@ -171,6 +172,7 @@ public class EnemyBehaviour : MonoBehaviour
         else
         {
             agent.SetDestination(target.position);
+            anim.SetInteger("condition", 1);
         }
 
         Vector3 distanceToLocation = transform.position - target.position;
@@ -179,6 +181,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (distanceToLocation.magnitude < 1f)
         {
             // walkPointSet = false;
+            
             StayPut();
 
         }
@@ -187,6 +190,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void StayPut()
     {
+        anim.SetInteger("condition", 0);
         agent.SetDestination(transform.position);
         if (timer <= 0)
         {
