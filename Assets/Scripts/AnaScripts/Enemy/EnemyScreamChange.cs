@@ -7,7 +7,7 @@ public class EnemyScreamChange : MonoBehaviour
     Animator anim;
 
     private Transform target;
-    int damageDone;
+    int damageDone=0;
 
 
     private void Start()
@@ -29,6 +29,9 @@ public class EnemyScreamChange : MonoBehaviour
     public void ActualAttack()
     {
         Debug.Log("Attack");
-        if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone);
+        if (target != null)
+        {
+            if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone);
+        }
     }
 }
