@@ -43,9 +43,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private AudioSource m_AudioSource;
 
         private bool m_Crouch = false;
-        private float m_OriginalHeight;
+        private float m_OriginalHeight = 0f;
         [SerializeField] private float m_CrouchHeight = 0.5f;
         [SerializeField] private crouchControl m_CrouchControl;
+        [SerializeField] private int m_IsMakingSound = 0;
 
         public enum crouchControl
         {
@@ -96,6 +97,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
             handleCrouch();
 
+            if (m_IsWalking)
+                m_IsMakingSound = 1;
+            else
+                m_IsMakingSound = 0;
+            if (Input.GetKey(KeyCode.Mouse0))
+                m_IsMakingSound = 1;
+            else
+                m_IsMakingSound = 0;
         }
 
         private void handleCrouch()

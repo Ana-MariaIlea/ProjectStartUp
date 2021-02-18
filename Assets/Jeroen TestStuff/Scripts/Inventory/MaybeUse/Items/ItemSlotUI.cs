@@ -12,7 +12,7 @@ public abstract class ItemSlotUI : MonoBehaviour, IDropHandler
 
     private void OnEnable() => UpdateSlotUI();
 
-    protected virtual void Start()
+    public virtual void Start()
     {
         SlotIndex = transform.GetSiblingIndex();
         UpdateSlotUI();
