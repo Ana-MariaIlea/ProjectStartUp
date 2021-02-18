@@ -22,7 +22,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     private NavMeshAgent agent;
     private Transform target;
-    private Transform hostage=null;
+    private Transform hostage = null;
     [SerializeField]
     private LayerMask whatIsGround;
     [SerializeField]
@@ -52,7 +52,7 @@ public class EnemyBehaviour : MonoBehaviour
     int playerState = 0;
     float timer = 5;
     float timerforAttack;
-    float range=0;
+    float range = 0;
     EnemyManager enemyManager;
     //----------------------------------------------------------------
     //                  Draw Gizmos
@@ -66,9 +66,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         Gizmos.color = Color.red;
-       // Gizmos.DrawWireSphere(transform.position, sightRange);
+        // Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.yellow;
-       // Gizmos.DrawWireSphere(transform.position, chaseRange);
+        // Gizmos.DrawWireSphere(transform.position, chaseRange);
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.cyan;
@@ -127,14 +127,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (targetInSight && !targetInAttackRange) Chase();
             if (targetInSight && targetInAttackRange)
             {
-                if (inteligenceLevel < inteligenceLevelForHostage)
-                    Attack();
-                else
-                {
-                    int change = Random.Range(1, 100);
-                    if (change < 50) Attack();
-                    else TakeHostage();
-                }
+                Attack();
             }
         }
     }
@@ -181,7 +174,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (distanceToLocation.magnitude < 1f)
         {
             // walkPointSet = false;
-            
+
             StayPut();
 
         }
@@ -201,7 +194,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             timer -= Time.fixedDeltaTime;
         }
-       // Debug.Log(timer);
+        // Debug.Log(timer);
     }
 
     void SearchWalkPoint()
@@ -232,15 +225,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    void TakeHostage()
-    {
-        agent.SetDestination(transform.position);
-        transform.LookAt(target);
-        if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone/3);
-    }
 
+    public void EnemyGetsHit()
+    {
+
+    }
     public void EnemyDies()
     {
+        anim.SetInteger("condition", 2);
         range = 0;
         agent.SetDestination(transform.position);
         enemyManager.EnemyDies();
