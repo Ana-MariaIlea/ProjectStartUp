@@ -14,6 +14,18 @@ CapsuleCollider:
   m_Height: 0.35
   m_Direction: 1
   m_Center: {x: 0, y: 0.17, z: -0.02}
+--- !u!114 &5025780674050977289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4635474187866013394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5bdab5048d64a4ea4095119171d2f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7263456456338280042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,18 +49,6 @@ MonoBehaviour:
   scream:
   - {fileID: 8300000, guid: 1fc067c18899e244facea7893d8da16b, type: 3}
   - {fileID: 8300000, guid: 4bfc43c817f05e047bddce5f86687155, type: 3}
---- !u!114 &5025780674050977289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4635474187866013394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a5bdab5048d64a4ea4095119171d2f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &9061573959734185602
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
     m_Bits: 2048
   sightRange: 6
   chaseRange: 8
-  attackRange: 1
+  attackRange: 2.5
   viewAngle: 180
   targetInSight: 0
   targetInAttackRange: 0

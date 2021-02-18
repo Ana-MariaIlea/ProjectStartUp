@@ -101,8 +101,7 @@ public class EnemyBehaviour : MonoBehaviour
     void Update()
     {
 
-        Debug.Log("Scream   "+anim.GetInteger("scream"));
-        Debug.Log("condition   " + anim.GetInteger("condition"));
+       // Debug.Log("Scream   "+anim.GetInteger("scream"));
         if (hostage == null)
         {
             Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, range, whatIsTarget);
@@ -140,6 +139,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 targetInAttackRange = true;
                 target = hitCollidersAttack[0].transform;
+                anim.SetInteger("condition", 5);
             }
             else { targetInAttackRange = false; }
 
@@ -148,6 +148,7 @@ public class EnemyBehaviour : MonoBehaviour
                 Vector3 position = new Vector3(0, 0, 0);
                 CalculateNoisePath(position);
             }
+           // Debug.Log("condition   " + anim.GetInteger("condition"));
 
             if (!targetInSight && !targetInAttackRange) Patroling();
             if (targetInSight && !targetInAttackRange) Chase();
@@ -192,7 +193,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             agent.SetDestination(target.position);
             anim.SetInteger("condition", 1);
-           // anim.SetInteger("scream", 0);
+            anim.SetInteger("scream", 0);
         }
 
         Vector3 distanceToLocation = transform.position - target.position;
@@ -248,12 +249,15 @@ public class EnemyBehaviour : MonoBehaviour
         {
             agent.SetDestination(transform.position);
             transform.LookAt(target);
-            if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone);
+            anim.SetInteger("condition", 5);
+            GetComponentInChildren<EnemyScreamChange>().SetParamForAttack(target, damageDone);
             timerforAttack = attackTimer;
         }
         else timerforAttack -= Time.fixedDeltaTime;
 
     }
+
+
 
 
     public void EnemyGetsHit()
