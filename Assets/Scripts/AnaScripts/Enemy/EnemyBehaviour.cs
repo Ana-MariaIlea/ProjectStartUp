@@ -5,6 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+
+    // Animator guide
+    //
+    // IdleAnimation   0
+    // WalkAnimation   1
+    // DeathAnimation  2
+    // ScreamAnimation 3
+    // RunAnimation    4
+    // AttackAnimation 5
+
+
     [System.Serializable]
     public class PathWay
     {
@@ -46,9 +57,9 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     int damageDone;
     [SerializeField]
-    int inteligenceLevel;
+    int walkSpeed;
     [SerializeField]
-    int inteligenceLevelForHostage;
+    int runSpeed;
     int playerState = 0;
     float timer = 5;
     float timerforAttack;
@@ -80,6 +91,7 @@ public class EnemyBehaviour : MonoBehaviour
         enemyManager = FindObjectOfType<EnemyManager>();
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponentInChildren<Animator>();
+        agent.speed = walkSpeed;
         timerforAttack = attackTimer;
         range = sightRange;
     }
@@ -88,6 +100,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log("Scream   "+anim.GetInteger("scream"));
+        Debug.Log("condition   " + anim.GetInteger("condition"));
         if (hostage == null)
         {
             Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, range, whatIsTarget);
@@ -102,6 +117,17 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         targetInSight = true;
                         target = hitCollidersSight[0].transform;
+                        if (anim.GetInteger("scream") == 0 && anim.GetInteger("condition") != 3)
+                        {
+                            agent.SetDestination(transform.position);
+
+                            anim.SetInteger("condition", 3);
+                        }
+                        else if (anim.GetInteger("scream") == 1)
+                        {
+                            anim.SetInteger("condition", 4);
+                        }
+
                     }
 
                 }
@@ -166,6 +192,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             agent.SetDestination(target.position);
             anim.SetInteger("condition", 1);
+           // anim.SetInteger("scream", 0);
         }
 
         Vector3 distanceToLocation = transform.position - target.position;
@@ -208,8 +235,11 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void Chase()
     {
+        agent.speed = runSpeed;
         walkPointSet = false;
-        agent.SetDestination(target.position);
+        if (anim.GetInteger("condition") == 4 && anim.GetInteger("scream") == 1)
+            agent.SetDestination(target.position);
+        else if (anim.GetInteger("scream") == 0) agent.SetDestination(transform.position);
         range = chaseRange;
     }
     void Attack()
