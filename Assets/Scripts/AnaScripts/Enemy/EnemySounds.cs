@@ -15,7 +15,7 @@ public class EnemySounds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        source = GetComponent<AudioSource>();
+        source = GetComponentInParent<AudioSource>();
     }
 
     public void Step()

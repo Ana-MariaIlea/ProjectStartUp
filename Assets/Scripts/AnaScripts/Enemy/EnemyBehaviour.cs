@@ -5,6 +5,17 @@ using UnityEngine.AI;
 
 public class EnemyBehaviour : MonoBehaviour
 {
+
+    // Animator guide
+    //
+    // IdleAnimation   0
+    // WalkAnimation   1
+    // DeathAnimation  2
+    // ScreamAnimation 3
+    // RunAnimation    4
+    // AttackAnimation 5
+
+
     [System.Serializable]
     public class PathWay
     {
@@ -15,14 +26,14 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     private PathWay[] path;
 
-
+    private Animator anim;
 
     private int walkPoint = -1;
     private bool walkPointSet;
 
     private NavMeshAgent agent;
     private Transform target;
-    private Transform hostage=null;
+    private Transform hostage = null;
     [SerializeField]
     private LayerMask whatIsGround;
     [SerializeField]
@@ -46,13 +57,13 @@ public class EnemyBehaviour : MonoBehaviour
     [SerializeField]
     int damageDone;
     [SerializeField]
-    int inteligenceLevel;
+    int walkSpeed;
     [SerializeField]
-    int inteligenceLevelForHostage;
+    int runSpeed;
     int playerState = 0;
     float timer = 5;
     float timerforAttack;
-    float range=0;
+    float range = 0;
     EnemyManager enemyManager;
     //----------------------------------------------------------------
     //                  Draw Gizmos
@@ -66,9 +77,9 @@ public class EnemyBehaviour : MonoBehaviour
         }
 
         Gizmos.color = Color.red;
-       // Gizmos.DrawWireSphere(transform.position, sightRange);
+        // Gizmos.DrawWireSphere(transform.position, sightRange);
         Gizmos.color = Color.yellow;
-       // Gizmos.DrawWireSphere(transform.position, chaseRange);
+        // Gizmos.DrawWireSphere(transform.position, chaseRange);
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(transform.position, attackRange);
         Gizmos.color = Color.cyan;
@@ -79,6 +90,8 @@ public class EnemyBehaviour : MonoBehaviour
     {
         enemyManager = FindObjectOfType<EnemyManager>();
         agent = GetComponent<NavMeshAgent>();
+        anim = GetComponentInChildren<Animator>();
+        agent.speed = walkSpeed;
         timerforAttack = attackTimer;
         range = sightRange;
     }
@@ -87,6 +100,9 @@ public class EnemyBehaviour : MonoBehaviour
 
     void Update()
     {
+
+        Debug.Log("Scream   "+anim.GetInteger("scream"));
+        Debug.Log("condition   " + anim.GetInteger("condition"));
         if (hostage == null)
         {
             Collider[] hitCollidersSight = Physics.OverlapSphere(transform.position, range, whatIsTarget);
@@ -101,6 +117,17 @@ public class EnemyBehaviour : MonoBehaviour
                     {
                         targetInSight = true;
                         target = hitCollidersSight[0].transform;
+                        if (anim.GetInteger("scream") == 0 && anim.GetInteger("condition") != 3)
+                        {
+                            agent.SetDestination(transform.position);
+
+                            anim.SetInteger("condition", 3);
+                        }
+                        else if (anim.GetInteger("scream") == 1)
+                        {
+                            anim.SetInteger("condition", 4);
+                        }
+
                     }
 
                 }
@@ -126,14 +153,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (targetInSight && !targetInAttackRange) Chase();
             if (targetInSight && targetInAttackRange)
             {
-                if (inteligenceLevel < inteligenceLevelForHostage)
-                    Attack();
-                else
-                {
-                    int change = Random.Range(1, 100);
-                    if (change < 50) Attack();
-                    else TakeHostage();
-                }
+                Attack();
             }
         }
     }
@@ -171,6 +191,8 @@ public class EnemyBehaviour : MonoBehaviour
         else
         {
             agent.SetDestination(target.position);
+            anim.SetInteger("condition", 1);
+           // anim.SetInteger("scream", 0);
         }
 
         Vector3 distanceToLocation = transform.position - target.position;
@@ -179,6 +201,7 @@ public class EnemyBehaviour : MonoBehaviour
         if (distanceToLocation.magnitude < 1f)
         {
             // walkPointSet = false;
+
             StayPut();
 
         }
@@ -187,6 +210,7 @@ public class EnemyBehaviour : MonoBehaviour
 
     void StayPut()
     {
+        anim.SetInteger("condition", 0);
         agent.SetDestination(transform.position);
         if (timer <= 0)
         {
@@ -197,7 +221,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             timer -= Time.fixedDeltaTime;
         }
-       // Debug.Log(timer);
+        // Debug.Log(timer);
     }
 
     void SearchWalkPoint()
@@ -211,8 +235,11 @@ public class EnemyBehaviour : MonoBehaviour
     }
     void Chase()
     {
+        agent.speed = runSpeed;
         walkPointSet = false;
-        agent.SetDestination(target.position);
+        if (anim.GetInteger("condition") == 4 && anim.GetInteger("scream") == 1)
+            agent.SetDestination(target.position);
+        else if (anim.GetInteger("scream") == 0) agent.SetDestination(transform.position);
         range = chaseRange;
     }
     void Attack()
@@ -228,15 +255,14 @@ public class EnemyBehaviour : MonoBehaviour
 
     }
 
-    void TakeHostage()
-    {
-        agent.SetDestination(transform.position);
-        transform.LookAt(target);
-        if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone/3);
-    }
 
+    public void EnemyGetsHit()
+    {
+
+    }
     public void EnemyDies()
     {
+        anim.SetInteger("condition", 2);
         range = 0;
         agent.SetDestination(transform.position);
         enemyManager.EnemyDies();
