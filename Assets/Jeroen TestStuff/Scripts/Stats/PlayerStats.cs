@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : CharacterStats
 {
-    private float healthPercentage;
-    private float time = 0f;
 
     [Header("Health Regeneration")]
     [SerializeField] private float regenWaitTime = 2f;
@@ -14,18 +12,13 @@ public class PlayerStats : CharacterStats
     [SerializeField] private float regenerateUntil = 20f;
     [SerializeField] private float regenerateFrom = 5f;
 
-    //[SerializeField] Inventory inventory;
-
-    [Header("Test Stuff")]
-    [SerializeField] private float healAmount = 5;
-    [SerializeField] private float currentMedKitAmount = 3;
-    [SerializeField] private float maxMedKitAmount = 5;
-
     [Header("References")]
     [SerializeField] private Healthbar healthbar = null;
 
     private bool canRegenerate = false;
-    
+
+    private float healthPercentage;
+    private float time = 0f;
 
     private void Start()
     {
@@ -39,21 +32,6 @@ public class PlayerStats : CharacterStats
     {
         healthbar.SetHealth(CurrentHealth);
         regenHealth();
-
-        // For test purposes
-        if (Input.GetKeyDown(KeyCode.T))
-            TakeDamage(5);
-        if (Input.GetKeyDown(KeyCode.L))
-            addMedKit();
-    }
-
-    public void addMedKit()
-    {
-        if (currentMedKitAmount < maxMedKitAmount)
-        {
-            currentMedKitAmount++;
-            //inventory.AddItem();
-        }
     }
 
     /// <summary>
