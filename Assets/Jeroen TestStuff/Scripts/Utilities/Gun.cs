@@ -1,6 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class Gun : MonoBehaviour
 {
@@ -23,9 +23,12 @@ public class Gun : MonoBehaviour
     [Header("References")]
     [SerializeField] private ParticleSystem muzzleFlash = null;
     [SerializeField] private Inventory inventory = null;
+    [SerializeField] private Image aimDot = null;
     
     private float fireTimer = 0f;
     private float originFoV = 0f;
+    private float aimSpreadFactor = 0f;
+    private float originSpreadFactor = 0f;
 
     private int isShooting = 0;
 
@@ -34,15 +37,20 @@ public class Gun : MonoBehaviour
     private Camera cam = null;
     private LineRenderer line = null;
     private Animator anim = null;
+    private FirstPersonController fpsController;
 
     private void Start()
     {
         line = GetComponent<LineRenderer>();
-        cam = transform.parent.GetComponent<Camera>();
-        anim = GetComponent<Animator>();
-        originPos = transform.localPosition;
+        cam = transform.parent.parent.GetComponent<Camera>();
+        anim = transform.parent.GetComponent<Animator>();
+        fpsController = transform.parent.parent.parent.GetComponent<FirstPersonController>();
+
         fireTimer = fireRate;
+        originPos = transform.localPosition;
         originFoV = cam.fieldOfView;
+        originSpreadFactor = aimSpreadFactor;
+        aimSpreadFactor = bulletSpreadFactor / 2;
 
         line.enabled = false;
         line.SetVertexCount(2);
@@ -79,15 +87,20 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Mouse1))
         {
-            Debug.Log("YEET");
             transform.localPosition = Vector3.Lerp(transform.localPosition, aimPosition, Time.deltaTime * aimSpeed);
-            //cam.fieldOfView = weaponAimCamZoom;
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, weaponAimCamZoom, Time.deltaTime * aimSpeed);
+            fpsController.SetMoveSpeedToAimSpeed(true);
+            aimDot.enabled = false;
+            bulletSpreadFactor = aimSpreadFactor;
         }
-        //else
-        //{
-        //    transform.localPosition = Vector3.Lerp(transform.localPosition, originPos, Time.deltaTime * aimSpeed);
-        //    //cam.fieldOfView = originFoV;
-        //}
+        else
+        {
+            transform.localPosition = Vector3.Lerp(transform.localPosition, originPos, Time.deltaTime * aimSpeed);
+            cam.fieldOfView = Mathf.Lerp(cam.fieldOfView, originFoV, Time.deltaTime * aimSpeed);
+            fpsController.SetMoveSpeedToAimSpeed(false);
+            aimDot.enabled = true;
+            bulletSpreadFactor = originSpreadFactor;
+        }
     }
 
     public void UpdateTotalAmmo(int ammo)
@@ -139,7 +152,7 @@ public class Gun : MonoBehaviour
     private void shootGun()
     {
         muzzleFlash.Play();
-        anim.Play("RifleHandShoot");
+        anim.Play("RifeHandFire");
         RaycastHit hitInfo;
 
         Vector3 shootDirection = cam.transform.forward;

@@ -44,6 +44,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private bool m_Crouch = false;
         private float m_OriginalHeight = 0f;
+        private float m_OriginalWalkSpeed = 0f;
+        private float m_OriginalRunSpeed = 0f;
+        private float m_AimWalkSpeed = 0f;
+        private float m_AimRunSpeed = 0f;
         [SerializeField] private float m_CrouchHeight = 0.5f;
         [SerializeField] private crouchControl m_CrouchControl;
         [SerializeField] private int m_IsMakingSound = 0;
@@ -58,14 +62,19 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private void Start()
         {
             m_CharacterController = GetComponent<CharacterController>();
+            m_AudioSource = GetComponent<AudioSource>();
             m_Camera = Camera.main;
+
             m_OriginalCameraPosition = m_Camera.transform.localPosition;
+            m_OriginalRunSpeed = m_RunSpeed;
+            m_OriginalWalkSpeed = m_WalkSpeed;
+            m_AimRunSpeed = m_RunSpeed / 2;
+            m_AimWalkSpeed = m_WalkSpeed / 2;
             m_FovKick.Setup(m_Camera);
             m_HeadBob.Setup(m_Camera, m_StepInterval);
             m_StepCycle = 0f;
             m_NextStep = m_StepCycle/2f;
             m_Jumping = false;
-            m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
             m_OriginalHeight = m_CharacterController.height;
         }
@@ -105,6 +114,20 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 m_IsMakingSound = 1;
             else
                 m_IsMakingSound = 0;
+        }
+
+        public void SetMoveSpeedToAimSpeed(bool isAiming)
+        {
+            if (isAiming)
+            {
+                m_WalkSpeed = m_AimWalkSpeed;
+                m_RunSpeed = m_AimRunSpeed;
+            }
+            else
+            {
+                m_WalkSpeed = m_OriginalWalkSpeed;
+                m_RunSpeed = m_OriginalRunSpeed;
+            }
         }
 
         private void handleCrouch()
