@@ -23,7 +23,14 @@ public class EnemySounds : MonoBehaviour
         if (footSteps.Length > 0)
         {
             int index = Random.Range(0, footSteps.Length);
-            source.PlayOneShot(footSteps[index]);
+            if (source != null)
+            {
+                source.PlayOneShot(footSteps[index]);
+            }
+            else
+            {
+                Debug.Log("source is null");
+            }
         }
     }
 
@@ -32,7 +39,15 @@ public class EnemySounds : MonoBehaviour
         if (dyingSounds.Length > 0)
         {
             int index = Random.Range(0, dyingSounds.Length);
-            source.PlayOneShot(dyingSounds[index]);
+            if (source != null)
+            {
+                source.PlayOneShot(dyingSounds[index]);
+            }
+            else
+            {
+                Debug.Log("source is null");
+            }
+
         }
     }
 
@@ -41,7 +56,16 @@ public class EnemySounds : MonoBehaviour
         if (scream.Length > 0)
         {
             int index = Random.Range(0, scream.Length);
-            source.PlayOneShot(scream[index]);
+            if (source != null)
+            {
+                source.PlayOneShot(scream[index]);
+            }
+            else
+            {
+                Debug.Log("source is null");
+            }
+            
+            
         }
     }
 
