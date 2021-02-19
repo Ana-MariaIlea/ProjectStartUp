@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityStandardAssets.Characters.FirstPerson;
@@ -24,6 +25,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private ParticleSystem muzzleFlash = null;
     [SerializeField] private Inventory inventory = null;
     [SerializeField] private Image aimDot = null;
+    [SerializeField] private TextMeshProUGUI ammoUI = null;
     
     private float fireTimer = 0f;
     private float originFoV = 0f;
@@ -81,6 +83,12 @@ public class Gun : MonoBehaviour
         }
 
         aimWeapon();
+        handleAmmoUI();
+    }
+
+    private void handleAmmoUI()
+    {
+        ammoUI.text = $"{currentAmmo} / {totalAmmo}";
     }
 
     private void aimWeapon()
@@ -159,7 +167,8 @@ public class Gun : MonoBehaviour
         shootDirection.x += Random.Range(-bulletSpreadFactor, bulletSpreadFactor);
         shootDirection.y += Random.Range(-bulletSpreadFactor, bulletSpreadFactor);
 
-        if (Physics.Raycast(cam.transform.position, shootDirection, out hitInfo, range))
+        if (Physics.Raycast(cam.transform.position, shootDirection, out hitInfo, range) &&
+            transform.parent.parent.parent.name != "FPS Player")
         {
 
             line.enabled = true;
@@ -169,8 +178,6 @@ public class Gun : MonoBehaviour
             var otherStats = hitInfo.transform.GetComponentInParent<CharacterStats>();
             if (otherStats != null)
             {
-                
-
                 otherStats.TakeDamage(damage);
             }
         }
