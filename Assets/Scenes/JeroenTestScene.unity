@@ -284,6 +284,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1099023118 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1485719593224515292, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+  m_PrefabInstance: {fileID: 8368317720977686455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66863651c05ca3b489b4604d6585b0f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1372428187
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +523,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1814873755}
     - target: {fileID: 1438452426, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: ammoUI
+      value: 
+      objectReference: {fileID: 2099489261}
+    - target: {fileID: 1438452426, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: weaponAimCamZoom
       value: 40
       objectReference: {fileID: 0}
@@ -535,6 +550,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: healthbar
+      value: 
+      objectReference: {fileID: 1099023118}
     - target: {fileID: 8757214944729193878, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -607,6 +626,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2099489261 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2099489261, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+  m_PrefabInstance: {fileID: 8368317720977686455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8368317720977686455
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -614,6 +644,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1485719594249534798, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1485719594249534798, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2933682872856997464, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
