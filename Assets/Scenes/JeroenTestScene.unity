@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &245528991 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 346531994015502922, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+  m_PrefabInstance: {fileID: 8368317720977686455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c860e6f2ccc9002459c2e8c3e493ad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &435570670
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +471,10 @@ PrefabInstance:
       propertyPath: ammoUI
       value: 
       objectReference: {fileID: 2099489261}
+    - target: {fileID: 1438452426, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: invKeypress
+      value: 
+      objectReference: {fileID: 245528991}
     - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: healthbar
       value: 
@@ -536,6 +551,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1978819068 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+  m_PrefabInstance: {fileID: 1438452424}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ec5cf00ca181d45a42ba1870e148c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2099489261 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2099489261, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
@@ -554,14 +580,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1485719594249534798, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1485719594249534798, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 346531994015502922, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+      propertyPath: fpsCont
+      value: 
+      objectReference: {fileID: 1978819068}
     - target: {fileID: 2933682872856997464, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

@@ -51,6 +51,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private float m_CrouchHeight = 0.5f;
         [SerializeField] private crouchControl m_CrouchControl;
         [SerializeField] private int m_IsMakingSound = 0;
+        [SerializeField] private bool m_CanLookAround = true;
 
         public enum crouchControl
         {
@@ -83,7 +84,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            RotateView();
+            if(m_CanLookAround)
+                RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
             {
@@ -115,6 +117,8 @@ namespace UnityStandardAssets.Characters.FirstPerson
             else
                 m_IsMakingSound = 0;
         }
+
+        public void SetCanLookAround(bool canLook) => m_CanLookAround = canLook;
 
         public void SetMoveSpeedToAimSpeed(bool isAiming)
         {
@@ -157,8 +161,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
                     }
                     break;
             }
-
-            
         }
 
         private void setCrouchHeight()

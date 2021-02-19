@@ -25,6 +25,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private ParticleSystem muzzleFlash = null;
     [SerializeField] private Image aimDot = null;
     [SerializeField] private TextMeshProUGUI ammoUI = null;
+    [SerializeField] private ToggleActiveWithKeyPress invKeypress = null;
     
     private float fireTimer = 0f;
     private float originFoV = 0f;
@@ -59,7 +60,7 @@ public class Gun : MonoBehaviour
 
         if (!isPistol)
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetButton("Fire1") && !invKeypress.GetIsInventoryOpen)
             {
                 if (fireTimer < fireRate) return;
                 handlePistolShooting();
@@ -150,12 +151,12 @@ public class Gun : MonoBehaviour
     {
         muzzleFlash.Play();
         anim.Play("RifeHandFire");
-        RaycastHit hitInfo;
 
         Vector3 shootDirection = cam.transform.forward;
         shootDirection.x += Random.Range(-bulletSpreadFactor, bulletSpreadFactor);
         shootDirection.y += Random.Range(-bulletSpreadFactor, bulletSpreadFactor);
 
+        RaycastHit hitInfo;
         if (Physics.Raycast(cam.transform.position, shootDirection, out hitInfo, range) &&
             transform.parent.parent.parent.name != "FPS Player")
         {

@@ -385,6 +385,7 @@ MonoBehaviour:
   m_CrouchHeight: 0.5
   m_CrouchControl: 1
   m_IsMakingSound: 0
+  m_CanLookAround: 1
 --- !u!54 &8757214944724198102
 Rigidbody:
   m_ObjectHideFlags: 0
