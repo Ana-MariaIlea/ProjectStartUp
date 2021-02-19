@@ -12,6 +12,7 @@ public class ToggleActiveWithKeyPress : MonoBehaviour
         if (Input.GetKeyDown(keyCode))
             objectToToggle.SetActive(!objectToToggle.activeInHierarchy);
         fpsCont.SetCanLookAround(!objectToToggle.activeInHierarchy);
+        fpsCont.SetMouseLock(!objectToToggle.activeInHierarchy);
     }
 
     public bool GetIsInventoryOpen => objectToToggle.activeInHierarchy;

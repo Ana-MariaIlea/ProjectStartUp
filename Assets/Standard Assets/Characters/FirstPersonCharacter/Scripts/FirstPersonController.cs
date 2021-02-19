@@ -119,6 +119,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         }
 
         public void SetCanLookAround(bool canLook) => m_CanLookAround = canLook;
+        public void SetMouseLock(bool cursorLock) => m_MouseLook.lockCursor = cursorLock;
 
         public void SetMoveSpeedToAimSpeed(bool isAiming)
         {
@@ -136,7 +137,6 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
         private void handleCrouch()
         {
-
             switch (m_CrouchControl)
             {
                 case crouchControl.toggle:
