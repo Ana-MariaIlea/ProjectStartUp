@@ -12571,6 +12571,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276261124}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1280911509 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1485719593224515295, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+  m_PrefabInstance: {fileID: 1938596361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1285042274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19341,6 +19352,10 @@ PrefabInstance:
       propertyPath: fpsCont
       value: 
       objectReference: {fileID: 1160913637}
+    - target: {fileID: 1485719593224515292, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+      propertyPath: healthSlider
+      value: 
+      objectReference: {fileID: 1280911509}
     - target: {fileID: 1485719594249534798, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
