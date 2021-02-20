@@ -11,7 +11,14 @@ public class LocationVolume : MonoBehaviour
         {
             //Debug.Log("collision with player");
             if (GetComponentInParent<QuestCompletion>() != null)
+            {
                 GetComponentInParent<QuestCompletion>().Compltion();
+                if (GetComponentInParent<QuestCompletion>().getStatus() == QuestEvent.EventStatus.DONE)
+                {
+                    if (GetComponentInParent<GameEnd>()) GetComponentInParent<GameEnd>().GameEnding();
+                }
+            }
+            
         }
     }
 }
