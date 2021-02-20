@@ -6,7 +6,7 @@ public class Healthbar : MonoBehaviour
     [SerializeField] private Gradient gradient;
     [SerializeField] private Image fill;
 
-    private Slider healthSlider = null;
+    [SerializeField]private Slider healthSlider = null;
 
     private void Start()
     {
