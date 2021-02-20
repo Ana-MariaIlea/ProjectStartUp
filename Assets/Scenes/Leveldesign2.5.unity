@@ -3892,17 +3892,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &353540944 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1485719593224515295, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
-  m_PrefabInstance: {fileID: 1938596361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &374845773
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8798,17 +8787,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 777214231}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &785875351 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 346531994015502922, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
-  m_PrefabInstance: {fileID: 1938596361}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c860e6f2ccc9002459c2e8c3e493ad9a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &799059862
 GameObject:
   m_ObjectHideFlags: 0
@@ -11447,7 +11425,7 @@ PrefabInstance:
     - target: {fileID: 1438452426, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: invKeypress
       value: 
-      objectReference: {fileID: 785875351}
+      objectReference: {fileID: 1766403682}
     - target: {fileID: 1548279433542869698, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: m_Layer
       value: 10
@@ -15118,7 +15096,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1608276475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17131,6 +17109,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ef26ba14727a774e8b98cab9c661f6f, type: 3}
+--- !u!114 &1766403682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 346531994015502922, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+  m_PrefabInstance: {fileID: 1938596361}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c860e6f2ccc9002459c2e8c3e493ad9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1767390601
 GameObject:
   m_ObjectHideFlags: 0
@@ -19352,10 +19341,6 @@ PrefabInstance:
       propertyPath: fpsCont
       value: 
       objectReference: {fileID: 1160913637}
-    - target: {fileID: 1485719593224515292, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
-      propertyPath: healthSlider
-      value: 
-      objectReference: {fileID: 353540944}
     - target: {fileID: 1485719594249534798, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
