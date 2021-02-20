@@ -7,13 +7,193 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000173F7BAEF48 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000017400E6F088 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000000543DCEE1C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFC5C35C2D0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFC5C35C2A0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFC5C35C3A0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFC5C35C460
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017389FD5E78
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='ItemPickUp1', format=2, channels=2, frequency=48000, lengthbytes=8256, lengthpcm=36028, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.195923.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000000543DCEE1C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFC5C35C2D0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFC5C35C2A0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFC5C35C3A0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFC5C35C460
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017389FD5E78
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='ItemPickUp4', format=2, channels=2, frequency=48000, lengthbytes=8448, lengthpcm=36028, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.228058.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000000543DCEE1C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFC5C35C2D0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFC5C35C2A0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFC5C35C3A0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFC5C35C460
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017389FD5E78
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='ItemPickUp2', format=2, channels=2, frequency=48000, lengthbytes=16128, lengthpcm=72055, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.179230.
+[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000000543DCEE1C
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFC5C35C2D0
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFC5C35C2A0
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFC5C35C3A0
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFC5C35C460
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000017389FD5E78
+[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Sample 0/1: name='ItemPickUp3', format=2, channels=2, frequency=48000, lengthbytes=10560, lengthpcm=48037, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.351257.
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = Fmod\ProjectStartUpGameSceneSounds\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000173609715D8 : node = 0000017392DAF0E0
+[LOG] SystemI::createSound                     : add node to async list : head = 000001744202E518.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000173609715D8
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod\ProjectStartUpGameSceneSounds\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000017392DAF1F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 56689
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='CalmBackgroundLoop', format=2, channels=2, frequency=48000, lengthbytes=2380128, lengthpcm=10071144, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.336700.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000173609715D8
+[LOG] SoundI::getSubSound                      : sound 00000173609715D8.  Subsound index 0 / 1
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000173F8006C28
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000173F8006C28
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SoundI::release                          : CalmBackgroundLoop (00000173F80032C8)
+[LOG] SoundI::release                          :     CalmBackgroundLoop (0000017442030C68)
+[LOG] SoundI::release                          :     CalmBackgroundLoop (00000173F80068C8)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = Fmod\ProjectStartUpGameSceneSounds\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001736096FE38 : node = 0000017392DAF220
+[LOG] SystemI::createSound                     : add node to async list : head = 000001744202E518.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001736096FE38
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod\ProjectStartUpGameSceneSounds\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000017392DAF330
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='IntenseOminous-and-deep-Ambience', format=2, channels=2, frequency=48000, lengthbytes=493088, lengthpcm=3173176, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.794403.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001736096FE38
+[LOG] SoundI::getSubSound                      : sound 000001736096FE38.  Subsound index 0 / 1
+[LOG] SoundI::release                          : IntenseOminous-and-deep-Ambience (00000173F8004A68)
+[LOG] SoundI::release                          :     IntenseOminous-and-deep-Ambience (000001744202F748)
+[LOG] SoundI::release                          :     IntenseOminous-and-deep-Ambience (00000173F8006C28)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000173F80068C8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000173F80068C8
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
+[LOG] SystemI::createSound                     : filename = Fmod\ProjectStartUpGameSceneSounds\Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 00000173F80028A8 : node = 0000017392DAF360
+[LOG] SystemI::createSound                     : add node to async list : head = 000001744202E518.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000173F80028A8
+[LOG] SystemI::createSoundInternal             :     Create name='Fmod\ProjectStartUpGameSceneSounds\Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 3952576
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 15616
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000017392DAF470
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='IntenseOminous-and-deep-Ambience', format=2, channels=2, frequency=48000, lengthbytes=493088, lengthpcm=3173176, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.794403.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000173F80028A8
+[LOG] SoundI::getSubSound                      : sound 00000173F80028A8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : IntenseOminous-and-deep-Ambience (000001736096FE38)
+[LOG] SoundI::release                          :     IntenseOminous-and-deep-Ambience (000001744202CB68)
+[LOG] SoundI::release                          :     IntenseOminous-and-deep-Ambience (00000173F80068C8)
+[LOG] SoundI::release                          : IntenseOminous-and-deep-Ambience (00000173F80028A8)
+[LOG] SoundI::release                          :     IntenseOminous-and-deep-Ambience (000001744202F748)
+[LOG] SoundI::release                          :     IntenseOminous-and-deep-Ambience (00000173F8006C28)
+[LOG] SoundI::release                          : CalmBackgroundLoop (00000173609715D8)
+[LOG] SoundI::release                          :     CalmBackgroundLoop (0000017442031148)
+[LOG] SoundI::release                          :     CalmBackgroundLoop (000001736096F928)
+[LOG] SoundI::release                          :  (00000173F85B2198)
+[LOG] SoundI::release                          :     ItemPickUp2 (0000017442032808)
+[LOG] SoundI::release                          :  (00000173F85B0928)
+[LOG] SoundI::release                          :     ItemPickUp3 (0000017442031E48)
+[LOG] SoundI::release                          :  (00000173F85B0EE8)
+[LOG] SoundI::release                          :     ItemPickUp4 (0000017442030FA8)
+[LOG] SoundI::release                          :  (00000173F85AF228)
+[LOG] SoundI::release                          :     ItemPickUp1 (0000017442031488)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
 [LOG] Manager::readBank                        : fileversion = 125, compatVersion = 119 (oldest = 44, newest = 125)
@@ -24,4 +204,6 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.
