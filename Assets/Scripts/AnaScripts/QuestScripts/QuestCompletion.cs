@@ -31,6 +31,11 @@ public class QuestCompletion : MonoBehaviour
 
     public TypeOfQuest type;
 
+    public QuestEvent.EventStatus getStatus()
+    {
+        return _event.status;
+    }
+
     public void Compltion()
     {
         if (_event.status != QuestEvent.EventStatus.CURRENT)
