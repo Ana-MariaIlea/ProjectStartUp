@@ -198,6 +198,14 @@ public class Gun : MonoBehaviour
             var otherStats = hitInfo.transform.GetComponentInParent<EnemyStats>();
             if (otherStats != null)
                 otherStats.TakeDamage(damage);
+            if (hitInfo.transform.tag == "Enemy")
+            {
+                var enemyBehaviour = hitInfo.transform.GetComponentInParent<EnemyBehaviour>();
+                if (enemyBehaviour != null)
+                {
+                    enemyBehaviour.EnemyGetsHit(this.transform);
+                }
+            }
         }
     }
 }
