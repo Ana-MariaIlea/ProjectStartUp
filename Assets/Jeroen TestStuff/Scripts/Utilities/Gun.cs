@@ -21,6 +21,10 @@ public class Gun : MonoBehaviour
 
     [SerializeField] Vector3 aimPosition = Vector3.zero;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] plasmaShots;
+    [SerializeField] private AudioClip reloadSounds;
+
     [Header("References")]
     [SerializeField] private ParticleSystem muzzleFlash = null;
     [SerializeField] private Image aimDot = null;
@@ -37,12 +41,14 @@ public class Gun : MonoBehaviour
     private Camera cam = null;
     private Animator anim = null;
     private FirstPersonController fpsController;
+    private AudioSource source = null;
 
     private void Start()
     {
         cam = transform.parent.parent.GetComponent<Camera>();
         anim = transform.parent.GetComponent<Animator>();
         fpsController = transform.parent.parent.parent.GetComponent<FirstPersonController>();
+        source = GetComponent<AudioSource>();
 
         fireTimer = fireRate;
         originPos = transform.localPosition;
@@ -66,16 +72,43 @@ public class Gun : MonoBehaviour
                 handlePistolShooting();
             }
             if (currentAmmo <= 0)
+            {
                 handleReload();
+            }
         }
         else
         {
             if(Input.GetButtonDown("Fire1"))
                 handlePistolShooting();
+            handleShootSounds();
         }
 
         aimWeapon();
         handleAmmoUI();
+    }
+
+    private void handleReloadSounds()
+    {
+        if (reloadSounds != null)
+        {
+            int index = Random.Range(0, plasmaShots.Length - 1);
+            if (source != null)
+                source.PlayOneShot(reloadSounds, 0.5f);
+            else
+                Debug.Log("Source is null");
+        }
+    }
+
+    private void handleShootSounds()
+    {
+        if (plasmaShots.Length > 0)
+        {
+            int index = Random.Range(0, plasmaShots.Length - 1);
+            if (source != null)
+                source.PlayOneShot(plasmaShots[index], 0.5f);
+            else
+                Debug.Log("Source is null");
+        }
     }
 
     private void handleAmmoUI()
@@ -115,11 +148,13 @@ public class Gun : MonoBehaviour
         {
             currentAmmo--;
             shootGun();
+            handleShootSounds();
             fireTimer = 0f;
         }
         else if (currentAmmo > 0)
         {
             shootGun();
+            handleShootSounds();
             fireTimer = 0f;
         }
     }
@@ -139,6 +174,7 @@ public class Gun : MonoBehaviour
         {
             currentAmmo = ammoPerMag;
             totalAmmo -= ammoPerMag;
+            handleReloadSounds();
         }
         else
         {
@@ -157,12 +193,13 @@ public class Gun : MonoBehaviour
         shootDirection.y += Random.Range(-bulletSpreadFactor, bulletSpreadFactor);
 
         RaycastHit hitInfo;
-        if (Physics.Raycast(cam.transform.position, shootDirection, out hitInfo, range) &&
-            transform.parent.parent.parent.name != "FPS Player")
+        if (Physics.Raycast(cam.transform.position, shootDirection, out hitInfo, range))
         {
-            var otherStats = hitInfo.transform.GetComponentInParent<CharacterStats>();
+            Debug.Log(hitInfo.transform.name);
+            var otherStats = hitInfo.transform.GetComponentInParent<EnemyStats>();
             if (otherStats != null)
             {
+                Debug.Log("Does damage");
                 otherStats.TakeDamage(damage);
             }
         }

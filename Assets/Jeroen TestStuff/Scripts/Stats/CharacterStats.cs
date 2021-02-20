@@ -10,7 +10,7 @@ public class CharacterStats : MonoBehaviour
         CurrentHealth = MaxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
 
