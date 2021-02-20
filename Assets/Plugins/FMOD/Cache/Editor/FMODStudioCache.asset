@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9002792005214074225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Background Music/Transition
+  m_EditorClassIdentifier: 
+  Name: Transition
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 1
 --- !u!114 &-8734501182060889155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16,7 +33,7 @@ MonoBehaviour:
   Min: 0
   Max: 10
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-8697323959123659281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -253,7 +270,7 @@ MonoBehaviour:
   Path: event:/PCSounds
   guid: ca0362e4fca2164e8dd06c0d4cd87cce
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 1
   Is3D: 1
   IsOneShot: 0
@@ -278,6 +295,24 @@ MonoBehaviour:
   Max: 10
   Default: 0
   Exists: 0
+--- !u!114 &-6400372214740510560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Fmod/ProjectStartUpGameSceneSounds/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637491629896960905
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
 --- !u!114 &-6219204875384797880
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,7 +347,7 @@ MonoBehaviour:
   Min: 0
   Max: 10
   Default: 0
-  Exists: 1
+  Exists: 0
 --- !u!114 &-5984626016344222536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -354,6 +389,23 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &-5598263195724008640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Background Music/Volume
+  m_EditorClassIdentifier: 
+  Name: Volume
+  Min: 0
+  Max: 10
+  Default: 0
+  Exists: 1
 --- !u!114 &-5094332630477773980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -615,7 +667,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: Fmod/ProjectStartUpGameSceneSounds/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637491183429144608
+  lastModified: 637491629896970507
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -635,7 +687,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -223136359204173373}
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   EditorEvents:
   - {fileID: 8562707344826863148}
   - {fileID: 5101514084258111356}
@@ -646,10 +698,10 @@ MonoBehaviour:
   - {fileID: 7030566895544180344}
   EditorParameters: []
   MasterBanks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   StringsBanks:
   - {fileID: -223136359204173373}
-  stringsBankWriteTime: 637491183429144608
+  stringsBankWriteTime: 637491629896970507
   cacheVersion: 3
 --- !u!114 &145412045567438979
 MonoBehaviour:
@@ -803,7 +855,7 @@ MonoBehaviour:
   Path: event:/Footsteps
   guid: 6626820743f5da46b4390c766db1d8f2
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 0
   Is3D: 0
   IsOneShot: 0
@@ -958,7 +1010,7 @@ MonoBehaviour:
   Path: event:/ItemPickUp
   guid: 90905b332c62ed458c097a3cdb38fb75
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -981,7 +1033,7 @@ MonoBehaviour:
   Path: event:/KeycardUse
   guid: 763fd1138aba6244b34acc0e9131093a
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1004,13 +1056,13 @@ MonoBehaviour:
   Path: event:/Background Music
   guid: 607ce96af7228d4a988e388f28e99326
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -8734501182060889155}
-  - {fileID: -6110590080761234663}
+  - {fileID: -5598263195724008640}
+  - {fileID: -9002792005214074225}
   MinDistance: 0
   MaxDistance: 0
   Length: 198325
@@ -1054,7 +1106,7 @@ MonoBehaviour:
   lastModified: 637491183429144608
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &7030566895544180344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1070,7 +1122,7 @@ MonoBehaviour:
   Path: event:/MedkitUse
   guid: f123588955a99246beba07cfa7f3f376
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
@@ -1185,7 +1237,7 @@ MonoBehaviour:
   Path: event:/EnemyDeath
   guid: 5f3f9870655c8a4688d5717655d45684
   Banks:
-  - {fileID: 6724936899938352637}
+  - {fileID: -6400372214740510560}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
