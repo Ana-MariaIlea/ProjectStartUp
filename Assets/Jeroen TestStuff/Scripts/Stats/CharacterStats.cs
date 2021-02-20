@@ -9,7 +9,6 @@ public class CharacterStats : MonoBehaviour
     {
         CurrentHealth = MaxHealth;
     }
-
     public virtual void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
@@ -36,7 +35,7 @@ public class CharacterStats : MonoBehaviour
         }
     }
 
-    public void Heal(int healAmount)
+    public virtual void Heal(int healAmount)
     {
         if (CurrentHealth + healAmount <= MaxHealth)
             CurrentHealth += healAmount;
@@ -44,7 +43,7 @@ public class CharacterStats : MonoBehaviour
             CurrentHealth = MaxHealth;
     }
 
-    public void Heal(float healAmount)
+    public virtual void Heal(float healAmount)
     {
         if (CurrentHealth + healAmount <= MaxHealth)
             CurrentHealth += healAmount;
@@ -59,4 +58,6 @@ public class CharacterStats : MonoBehaviour
     {
         Debug.Log(transform.name + " died");
     }
+
+    
 }

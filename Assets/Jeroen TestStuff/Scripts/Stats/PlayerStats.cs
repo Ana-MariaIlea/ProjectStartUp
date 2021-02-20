@@ -12,6 +12,7 @@ public class PlayerStats : CharacterStats
 
     [Header("Sounds")]
     [SerializeField] private AudioClip[] takingDamageSounds;
+    [SerializeField] private AudioClip medKitSound = null;
 
     [Header("References")]
     [SerializeField] private Healthbar healthbar = null;
@@ -36,6 +37,33 @@ public class PlayerStats : CharacterStats
     {
         healthbar.SetHealth(CurrentHealth);
         regenHealth();
+
+        if (Input.GetKeyDown(KeyCode.T))
+            TakeDamage(5);
+        
+    }
+
+    public override void Heal(float healAmount)
+    {
+        base.Heal(healAmount);
+        handleMedKitSound();
+    }
+
+    public override void Heal(int healAmount)
+    {
+        base.Heal(healAmount);
+        handleMedKitSound();
+    }
+
+    private void handleMedKitSound()
+    {
+        if (medKitSound != null)
+        {
+            if (source != null)
+                source.PlayOneShot(medKitSound);
+            else
+                Debug.Log("Source is null");
+        }
     }
 
     private void handlePlayerHitSounds()

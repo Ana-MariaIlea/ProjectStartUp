@@ -11487,6 +11487,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1938596365}
     - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: medKitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1335fa93881421c4e89eabe8c9f9eaae, type: 3}
+    - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: takingDamage.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -11500,6 +11504,22 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: a9550fa9384ddd74da8b33bba208c6da, type: 3}
     - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
       propertyPath: takingDamage.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 34859bf7bd2205b4891e0d0698e5af77, type: 3}
+    - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: takingDamageSounds.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: takingDamageSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6a70bfb025499549ac8bebe8cf7967f, type: 3}
+    - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: takingDamageSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: a9550fa9384ddd74da8b33bba208c6da, type: 3}
+    - target: {fileID: 8757214944411533126, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: takingDamageSounds.Array.data[2]
       value: 
       objectReference: {fileID: 8300000, guid: 34859bf7bd2205b4891e0d0698e5af77, type: 3}
     - target: {fileID: 8757214944729193878, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
@@ -11570,6 +11590,38 @@ PrefabInstance:
       propertyPath: m_WalkSpeed
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_MouseLook.lockCursor
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 038fcd01edbdf9341959946f6497b9e7, type: 3}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2cdfd1a216aab1a43a9d62e1a31a64da, type: 3}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: a4ad5d4c01c349c4faec2fc774ae05e4, type: 3}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: b03b490050b7f2643bb1bbdb8a9c04d9, type: 3}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: 43f40d9611990fc43a51cfd54743991f, type: 3}
+    - target: {fileID: 8757214944740029526, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
+      propertyPath: m_FootstepSounds.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: e131e0e05daa59342bd54d2ed2398cbe, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2ed398be464dff84cbed1f431c462ba4, type: 3}
 --- !u!114 &1160913637 stripped

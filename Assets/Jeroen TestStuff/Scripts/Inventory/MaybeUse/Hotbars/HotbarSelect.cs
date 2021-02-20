@@ -8,6 +8,8 @@ public class HotbarSelect : MonoBehaviour
 
     private KeyCode keyCode;
 
+    
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -25,5 +27,8 @@ public class HotbarSelect : MonoBehaviour
             currentHotbarSlot = hotbarSlots[2];
             currentHotbarSlot.UseSlot(2);
         }
+
     }
+
+    
 }
