@@ -18,4 +18,9 @@ public class EnemyStats : CharacterStats
        // this.enabled = false;
        // Destroy(gameObject);
     }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+    }
 }

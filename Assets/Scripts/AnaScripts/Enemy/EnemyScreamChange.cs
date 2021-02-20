@@ -34,7 +34,10 @@ public class EnemyScreamChange : MonoBehaviour
         Debug.Log("Attack");
         if (target != null)
         {
-            if (target.GetComponent<CharacterStats>() != null) target.GetComponent<CharacterStats>().TakeDamage(damageDone);
+            if (target.transform.name == "FPS Player")
+            {
+                if (target.GetComponent<PlayerStats>() != null) target.GetComponent<PlayerStats>().TakeDamage(damageDone);
+            }
         }
     }
 }

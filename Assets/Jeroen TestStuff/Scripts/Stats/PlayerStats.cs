@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerStats : CharacterStats
@@ -12,6 +10,9 @@ public class PlayerStats : CharacterStats
     [SerializeField] private float regenerateUntil = 20f;
     [SerializeField] private float regenerateFrom = 5f;
 
+    [Header("Sounds")]
+    [SerializeField] private AudioClip[] takingDamageSounds;
+
     [Header("References")]
     [SerializeField] private Healthbar healthbar = null;
 
@@ -20,8 +21,11 @@ public class PlayerStats : CharacterStats
     private float healthPercentage;
     private float time = 0f;
 
+    private AudioSource source = null;
+
     private void Start()
     {
+        source = GetComponent<AudioSource>();
         if (regenPercentage < 0f || regenPercentage > 1f)
             Debug.LogException(new System.Exception("regenPercentage out of range. Value must be between 0 and 1"));
         healthbar.SetMaxHealth(MaxHealth);
@@ -32,6 +36,24 @@ public class PlayerStats : CharacterStats
     {
         healthbar.SetHealth(CurrentHealth);
         regenHealth();
+    }
+
+    private void handlePlayerHitSounds()
+    {
+        if (takingDamageSounds.Length > 0)
+        {
+            int index = Random.Range(0, takingDamageSounds.Length - 1);
+            if (source != null)
+                source.PlayOneShot(takingDamageSounds[index]);
+            else
+                Debug.Log("Source is null");
+        }
+    }
+
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        handlePlayerHitSounds();
     }
 
     /// <summary>
