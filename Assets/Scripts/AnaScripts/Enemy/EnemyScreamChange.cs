@@ -16,8 +16,11 @@ public class EnemyScreamChange : MonoBehaviour
     }
     public void ChangeState()
     {
-        anim.SetInteger("condition", 4);
-        anim.SetInteger("scream", 1);
+        if (anim != null)
+        {
+            anim.SetInteger("condition", 4);
+            anim.SetInteger("scream", 1);
+        }
     }
 
 
