@@ -6033,19 +6033,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quests:
   - name: Get the blue cube
-    description: Find the blue cube, get close to the cube and press E to colect
+    description: Find the blue cube, get close to the cube and press E to collect
       it
     id: gtbc
     status: 0
     order: 0
   - name: Get the yellow cube
-    description: Find the yellow cube, get close to the cube and press E to colect
+    description: Find the yellow cube, get close to the cube and press E to collect
       it
     id: gtyc
     status: 0
     order: 0
   - name: Get the pink cube
-    description: Find the pink cube, get close to the cube and press E to colect
+    description: Find the pink cube, get close to the cube and press E to collect
       it
     id: gtpc
     status: 0
@@ -6065,8 +6065,8 @@ MonoBehaviour:
     id: ets2
     status: 0
     order: 0
-  - name: Get in the elevator
-    description: Get in the elevator
+  - name: Get in the lift
+    description: Get in the lift
     id: gite
     status: 0
     order: 0
@@ -25859,6 +25859,14 @@ PrefabInstance:
     - target: {fileID: 1119546354, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119546355, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1119546355, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 346531994015502922, guid: 6e4a0b9dbfa76a747a069e5256ee524e, type: 3}
       propertyPath: fpsCont
