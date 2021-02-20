@@ -8,6 +8,7 @@ TagManager:
   - SafeRoom
   - Item
   - Volume
+  - Enemy
   layers:
   - Default
   - TransparentFX

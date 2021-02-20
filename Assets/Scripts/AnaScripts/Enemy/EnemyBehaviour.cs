@@ -25,6 +25,8 @@ public class EnemyBehaviour : MonoBehaviour
     }
     [SerializeField]
     private PathWay[] path;
+    [SerializeField]
+    private GameObject player = null;
 
     private Animator anim;
 
@@ -260,10 +262,13 @@ public class EnemyBehaviour : MonoBehaviour
 
 
 
-    public void EnemyGetsHit()
+    public void EnemyGetsHit(Transform transform)
     {
-
+        Debug.Log("Hits Enemy");
+        target = transform;
+        Attack();
     }
+
     public void EnemyDies()
     {
         anim.SetInteger("condition", 2);
