@@ -149,13 +149,11 @@ namespace UnityStandardAssets.Characters.FirstPerson
                 case crouchControl.hold:
                     if (m_CharacterController.isGrounded && !m_Jumping && Input.GetKeyDown(KeyCode.LeftControl))
                     {
-                        Debug.Log("Crouching");
                         m_Crouch = true;
                         setCrouchHeight();
                     }
                     if (m_CharacterController.isGrounded && !m_Jumping && Input.GetKeyUp(KeyCode.LeftControl))
                     {
-                        Debug.Log("Standing Up");
                         m_Crouch = false;
                         setCrouchHeight();
                     }
@@ -202,7 +200,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
 
                 if (m_Jump)
                 {
-                    m_MoveDir.y = m_JumpSpeed;
+                    //m_MoveDir.y = m_JumpSpeed;
                     //PlayJumpSound();
                     m_Jump = false;
                     m_Jumping = true;

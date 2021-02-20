@@ -92,9 +92,7 @@ public class PlayerStats : CharacterStats
         healthPercentage = (CurrentHealth / MaxHealth) * 100;
 
         if (healthPercentage > 0f && healthPercentage <= regenerateFrom)
-        {
             canRegenerate = true;
-        }
 
         if (healthPercentage < regenerateUntil && canRegenerate)
         {
@@ -107,8 +105,6 @@ public class PlayerStats : CharacterStats
             }
         }
         else
-        {
             canRegenerate = false;
-        }
     }
 }

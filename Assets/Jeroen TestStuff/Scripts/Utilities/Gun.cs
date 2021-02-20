@@ -66,7 +66,7 @@ public class Gun : MonoBehaviour
 
         if (!isPistol)
         {
-            if (Input.GetButton("Fire1") && !invKeypress.GetIsInventoryOpen)
+            if (Input.GetKey(KeyCode.Mouse0) && !invKeypress.GetIsInventoryOpen)
             {
                 if (fireTimer < fireRate) return;
                 handlePistolShooting();
@@ -78,9 +78,8 @@ public class Gun : MonoBehaviour
         }
         else
         {
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetKeyDown(KeyCode.Mouse0))
                 handlePistolShooting();
-            handleShootSounds();
         }
 
         aimWeapon();
@@ -198,10 +197,7 @@ public class Gun : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
             var otherStats = hitInfo.transform.GetComponentInParent<EnemyStats>();
             if (otherStats != null)
-            {
-                Debug.Log("Does damage");
                 otherStats.TakeDamage(damage);
-            }
         }
     }
 }
