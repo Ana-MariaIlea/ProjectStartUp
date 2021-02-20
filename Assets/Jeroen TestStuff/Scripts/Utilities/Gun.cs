@@ -197,10 +197,7 @@ public class Gun : MonoBehaviour
             Debug.Log(hitInfo.transform.name);
             var otherStats = hitInfo.transform.GetComponentInParent<EnemyStats>();
             if (otherStats != null)
-            {
-                Debug.Log("Does damage");
                 otherStats.TakeDamage(damage);
-            }
         }
     }
 }
