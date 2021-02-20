@@ -19,7 +19,7 @@ public class GameEnd : MonoBehaviour
 
         for (int i = 0; i < objectsToTurnOn.Length; i++)
         {
-            objectsToTurnOff[i].SetActive(true);
+            objectsToTurnOn[i].SetActive(true);
         }
 
         director.Play();
