@@ -12667,6 +12667,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeV1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3566390031902043909, guid: 509e1a8af4d9b744bb8cf76514b6310d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: c994011b6eeb7024489e334b60923b4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 509e1a8af4d9b744bb8cf76514b6310d, type: 3}
 --- !u!1001 &991809487
@@ -13186,6 +13190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PipeV2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3566390031902043909, guid: e46729d13b134b34b882ffbc277ebe5d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2d3d6109904f91d43bf7a6ce7fe5cc55, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e46729d13b134b34b882ffbc277ebe5d, type: 3}
 --- !u!1 &1037133349 stripped

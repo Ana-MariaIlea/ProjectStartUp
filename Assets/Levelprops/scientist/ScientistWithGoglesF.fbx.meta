@@ -3,7 +3,67 @@ guid: 23ae2b73e4647244c85063d6c58f9031
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extract0
+    second: {fileID: 2100000, guid: e0194cb77fa0432468216363c87f37ee, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extract25
+    second: {fileID: 2100000, guid: 56e8d654a614cd54184a416df637d74d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extract30
+    second: {fileID: 2100000, guid: 0175b64f55877824ba2b303433b11cd6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Extract4
+    second: {fileID: 2100000, guid: 346d45eb6cb6bc34487a32854b8a7f1f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Circle3D1
+    second: {fileID: 2100000, guid: 60e729e6adf4c7047929a290ecbaabe7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Plane3D1
+    second: {fileID: 2100000, guid: 88838f80c6d79e640821a52f75e02e63, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Ring3D1
+    second: {fileID: 2100000, guid: b85e819d9363ea64795a1f40b7329da5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Sphere3D1_1
+    second: {fileID: 2100000, guid: da560617c95a41048901fd6fc3ca4c2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PM3D_Sphere3D1_2
+    second: {fileID: 2100000, guid: aed2a74c89892e3478be22e653503cb3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Scientist11
+    second: {fileID: 2100000, guid: d917b765183bfc64caf8f3593972edf5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UMesh_PM3D_Cylinder3D2
+    second: {fileID: 2100000, guid: 567a559af401b344d857be5937c949a5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: e9716813b6bfde44a9ecdbb129856363, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
