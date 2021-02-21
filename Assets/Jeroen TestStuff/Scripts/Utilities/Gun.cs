@@ -22,8 +22,8 @@ public class Gun : MonoBehaviour
     [SerializeField] Vector3 aimPosition = Vector3.zero;
 
     [Header("Sounds")]
-    [SerializeField] private AudioClip[] plasmaShots;
-    [SerializeField] private AudioClip reloadSounds;
+    [SerializeField] private AudioClip[] plasmaShots = null;
+    [SerializeField] private AudioClip reloadSounds = null;
 
     [Header("References")]
     [SerializeField] private ParticleSystem muzzleFlash = null;
@@ -61,7 +61,6 @@ public class Gun : MonoBehaviour
 
     private void Update()
     {
-
         if (fireTimer < fireRate) fireTimer += Time.deltaTime;
 
         if (!isPistol)
@@ -110,10 +109,7 @@ public class Gun : MonoBehaviour
         }
     }
 
-    private void handleAmmoUI()
-    {
-        ammoUI.text = $"{currentAmmo} / {totalAmmo}";
-    }
+    private void handleAmmoUI() => ammoUI.text = $"{currentAmmo} / {totalAmmo}";
 
     private void aimWeapon()
     {
